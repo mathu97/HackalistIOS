@@ -11,9 +11,11 @@ import Alamofire
 
 class MainVC: UIViewController {
     
+    var Hackathons: [Hackathon] = [] //Array of all hackathons
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let hkData = getData(API_URL: "https://Hackalist.github.io/api/1.0/2017/01.json")
+        let hkData = getData(API_URL: "https://Hackalist.github.io/api/1.0")
     }
     
     func getData(API_URL : String){
@@ -31,15 +33,30 @@ class MainVC: UIViewController {
         
         
         let year = calendar.component(.year, from: date)
+        var month = ""
         
+        //Getting the hackathons for the current month + year
+        if currentDateComp.month! <= 9{
+            month = month + "0" + String(describing: currentDateComp.month!)
+        }else{
+            month = month + String(describing: currentDateComp.month!)
+        }
+        
+        let API_URL = API_URL + "/" + String(year) + "/" + month + ".json"
         
         let hkURL = URL(string: API_URL)!
         
         Alamofire.request(hkURL).responseJSON{ response in
             switch response.result {
             case .success:
-                if let json = response.result.value {
-                    print("JSON: \(json)")
+                if let json = response.result.value as? [String: Any] {
+                    let month = json["June"]
+                    for case let result in (month as? [Any])!{
+                        let info = result as? [String: String]
+                        var new_hackathon = Hackathon(json: info!)
+                        self.Hackathons.append(new_hackathon)
+                    }
+                    
                 }
             case .failure(let error):
                 print(error)

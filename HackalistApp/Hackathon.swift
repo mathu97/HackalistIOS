@@ -19,9 +19,6 @@ class Hackathon{
     _fbURL,
     _twitterURL,
     _googlePlusURL,
-    _travel,
-    _highSchoolers,
-    _prize,
     _cost,
     _notes: String!
     
@@ -29,8 +26,24 @@ class Hackathon{
     _length,
     _size: Int!
     
-    init(json : [String: Any]){
+    private var _travel, _highSchoolers, _prize : Bool
+    
+    init(json : [String: String]){
+        self._title = json["title"]
+        self._webURL = json["url"]
+        self._location = json["city"]
+        self._host = json["host"]
+        self._startDate = json["startDate"]
+        self._endDate = json["endDate"]
+        self._fbURL = json["facebookURL"]
+        self._twitterURL = json["twitterURL"]
+        self._googlePlusURL = json["googlePlusURL"]
+        
+        if (json["travel"] == "yes"){
+            self._travel = true
+        }else{
+            self._travel = false
+        }
         
     }
-    
 }
