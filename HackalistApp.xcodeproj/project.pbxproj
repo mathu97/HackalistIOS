@@ -156,7 +156,7 @@
 				TargetAttributes = {
 					2342503A1EE98BF6005DA2C1 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = TGW23JF73T;
+						DevelopmentTeam = 3GL338SD7Q;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -375,7 +375,7 @@
 			baseConfigurationReference = A1EE3EAC976F53068B252671 /* Pods-HackalistApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = TGW23JF73T;
+				DEVELOPMENT_TEAM = 3GL338SD7Q;
 				INFOPLIST_FILE = HackalistApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.mathusan.HackalistApp;
@@ -389,7 +389,7 @@
 			baseConfigurationReference = 210F37CC69B594526ED2A4A9 /* Pods-HackalistApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = TGW23JF73T;
+				DEVELOPMENT_TEAM = 3GL338SD7Q;
 				INFOPLIST_FILE = HackalistApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.mathusan.HackalistApp;

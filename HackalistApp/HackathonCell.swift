@@ -9,22 +9,11 @@
 import UIKit
 
 class HackathonCell: UITableViewCell {
-
+    
     @IBOutlet weak var HkLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
-    func updateUI() {
-        
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configureCell(hackathon: Hackathon){
+        HkLabel.text = hackathon.title
     }
 
 }

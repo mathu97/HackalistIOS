@@ -10,8 +10,8 @@ import UIKit
 import Alamofire
 
 class MainVC: UIViewController {
-    
-    var Hackathons: [Hackathon] = [] //Array of all hackathons
+    var hackathon : Hackathon!
+    var hackathons = [Hackathon]() //Array of all hackathons
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,12 +49,12 @@ class MainVC: UIViewController {
         Alamofire.request(hkURL).responseJSON{ response in
             switch response.result {
             case .success:
-                if let json = response.result.value as? [String: Any] {
-                    let month = json["June"]
-                    for case let result in (month as? [Any])!{
+                if let json = response.result.value as? Dictionary<String, AnyObject> {
+                    let month = json["July"] as! [Dictionary<String, AnyObject>]
+                    for case let result in month{
                         let info = result as? [String: String]
-                        var new_hackathon = Hackathon(json: info!)
-                        self.Hackathons.append(new_hackathon)
+                        self.hackathon = Hackathon(json: info!)
+                        self.hackathons.append(self.hackathon)
                     }
                     
                 }
