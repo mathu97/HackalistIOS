@@ -28,6 +28,8 @@ class Hackathon{
     
     private var _travel, _highSchoolers, _prize : Bool
     
+    
+    
     init(json : [String: String]){
         self._title = json["title"]
         self._webURL = json["url"]
@@ -45,5 +47,19 @@ class Hackathon{
             self._travel = false
         }
         
+        if (json["highSchoolers"] == "yes"){
+            self._highSchoolers = true
+        }else{
+            self._highSchoolers = false
+        }
+        
+        if (json["prize"] == "yes"){
+            self._prize = true
+        }else{
+            self._prize = false
+        }
+        
+        self._length = Int(json["length"]!)
+        self._size = Int(json["size"]!)
     }
 }
