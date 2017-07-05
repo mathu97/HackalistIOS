@@ -12,6 +12,7 @@ import Alamofire
 class MainVC: UIViewController {
     var hackathon : Hackathon!
     var hackathons = [Hackathon]() //Array of all hackathons
+    var months = [String]() //Array of all months
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,36 +36,47 @@ class MainVC: UIViewController {
         let curr_month_data = calendar.date(from: currentDateComp)!
         let curr_month = myFormatter.string(from: curr_month_data)
         
-        let months = myFormatter.monthSymbols  //Array of all months
+        self.months = myFormatter.monthSymbols  //Array of all months
         
-        let currentMonthIndex = months?.index(of: curr_month)
-        //print(months)
-        //print(currentMonthIndex)
-        
-        //print("current DAte: \(curr_date), current Month: \(curr_month)")
+        let currentMonthIndex = self.months.index(of: curr_month)
+
         
         let year = calendar.component(.year, from: date)
         var month = ""
         
         //Getting the hackathons for the current month + year
-        if currentDateComp.month! <= 9{
-            month = month + "0" + String(describing: currentDateComp.month!)
-        }else{
-            month = month + String(describing: currentDateComp.month!)
+        for i in currentDateComp.month! ... 12{
+            
+            if i <= 9{
+                month = "0" + String(describing: i)
+            }else{
+                month = String(describing: i)
+            }
+        
+            let API_URL = API_URL + "/" + String(year) + "/" + month + ".json"
+        
+            print(API_URL)
+            let hkURL = URL(string: API_URL)!
+            
+            apiRequest(hkURL: hkURL, currentMonthIndex: i-1)
         }
-        
-        let API_URL = API_URL + "/" + String(year) + "/" + month + ".json"
-        
-        let hkURL = URL(string: API_URL)!
+    }
+    
+    func apiRequest(hkURL : URL, currentMonthIndex : Int){
+        //Gets hackathosn for the current month and adds the hackathon objects to the hackathons array
         
         Alamofire.request(hkURL).responseJSON{ response in
             switch response.result {
             case .success:
+                
                 if let json = response.result.value as? Dictionary<String, AnyObject> {
-                    for month_index in Int(currentMonthIndex!) ..< 12{
-                        let month = months?[month_index]
-                        print(month)
-                        let month_hackathons = json[month!] as! [Dictionary<String, AnyObject>]
+                    
+                    for month_index in Int(currentMonthIndex) ..< 12{
+                        print("month index: \(month_index)")
+                        let month = self.months[month_index]
+                        print("month: \(month)")
+                        let month_hackathons = json[month] as! [Dictionary<String, AnyObject>]
+                        print(month_hackathons)
                         for case let result in month_hackathons{
                             let info = result as? [String: String]
                             self.hackathon = Hackathon(json: info!)
