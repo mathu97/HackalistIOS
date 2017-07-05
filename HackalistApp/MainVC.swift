@@ -31,6 +31,17 @@ class MainVC: UIViewController {
         let curr_date_data = calendar.date(from: currentDateComp)!
         let curr_date = myFormatter.string(from: curr_date_data)
         
+        myFormatter.dateFormat = "MMMM"
+        let curr_month_data = calendar.date(from: currentDateComp)!
+        let curr_month = myFormatter.string(from: curr_month_data)
+        
+        let months = myFormatter.monthSymbols  //Array of all months
+        
+        let currentMonthIndex = months?.index(of: curr_month)
+        //print(months)
+        //print(currentMonthIndex)
+        
+        //print("current DAte: \(curr_date), current Month: \(curr_month)")
         
         let year = calendar.component(.year, from: date)
         var month = ""
@@ -50,13 +61,18 @@ class MainVC: UIViewController {
             switch response.result {
             case .success:
                 if let json = response.result.value as? Dictionary<String, AnyObject> {
-                    let month = json["July"] as! [Dictionary<String, AnyObject>]
-                    for case let result in month{
-                        let info = result as? [String: String]
-                        self.hackathon = Hackathon(json: info!)
-                        self.hackathons.append(self.hackathon)
+                    for month_index in Int(currentMonthIndex!) ..< 12{
+                        let month = months?[month_index]
+                        print(month)
+                        let month_hackathons = json[month!] as! [Dictionary<String, AnyObject>]
+                        for case let result in month_hackathons{
+                            let info = result as? [String: String]
+                            self.hackathon = Hackathon(json: info!)
+                            self.hackathons.append(self.hackathon)
+                            
+                            print(self.hackathon.title)
+                        }
                     }
-                    
                 }
             case .failure(let error):
                 print(error)

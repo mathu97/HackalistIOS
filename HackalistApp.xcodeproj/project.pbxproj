@@ -16,6 +16,7 @@
 		234250571EE99DD4005DA2C1 /* HackathonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234250561EE99DD4005DA2C1 /* HackathonCell.swift */; };
 		234250591EE9A3D2005DA2C1 /* Hackathon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234250581EE9A3D2005DA2C1 /* Hackathon.swift */; };
 		52D8E86B529010609E14798F /* Pods_HackalistApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2274F0697E0D8BB56F3BA73 /* Pods_HackalistApp.framework */; };
+		8212C08A1F0C96CA00008D1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8212C0891F0C96CA00008D1A /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2342504D1EE98BF6005DA2C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		234250561EE99DD4005DA2C1 /* HackathonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HackathonCell.swift; sourceTree = "<group>"; };
 		234250581EE9A3D2005DA2C1 /* Hackathon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hackathon.swift; sourceTree = "<group>"; };
+		8212C0891F0C96CA00008D1A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A1EE3EAC976F53068B252671 /* Pods-HackalistApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackalistApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackalistApp/Pods-HackalistApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D2274F0697E0D8BB56F3BA73 /* Pods_HackalistApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackalistApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				234250581EE9A3D2005DA2C1 /* Hackathon.swift */,
+				8212C0891F0C96CA00008D1A /* Constants.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				234250591EE9A3D2005DA2C1 /* Hackathon.swift in Sources */,
 				2342503F1EE98BF6005DA2C1 /* AppDelegate.swift in Sources */,
 				234250571EE99DD4005DA2C1 /* HackathonCell.swift in Sources */,
+				8212C08A1F0C96CA00008D1A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
