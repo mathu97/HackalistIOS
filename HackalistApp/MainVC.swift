@@ -43,6 +43,8 @@ class MainVC: UIViewController {
         
         let year = calendar.component(.year, from: date)
         var month = ""
+        var monthURL = ""
+        var hkURL : URL
         
         //Getting the hackathons for the current month + year
         for i in currentDateComp.month! ... 12{
@@ -53,38 +55,34 @@ class MainVC: UIViewController {
                 month = String(describing: i)
             }
         
-            let API_URL = API_URL + "/" + String(year) + "/" + month + ".json"
-        
-            print(API_URL)
-            let hkURL = URL(string: API_URL)!
-            
-            apiRequest(hkURL: hkURL, currentMonthIndex: i-1)
+            monthURL = API_URL + "/" + String(year) + "/" + month + ".json"
+            hkURL = URL(string: monthURL)!
+            apiRequest(hkURL: hkURL, currentMonthIndex: i-1){}
         }
     }
     
-    func apiRequest(hkURL : URL, currentMonthIndex : Int){
+    func apiRequest(hkURL : URL, currentMonthIndex : Int, completed: @escaping DownloadComplete){
         //Gets hackathosn for the current month and adds the hackathon objects to the hackathons array
-        
+        print(hkURL)
         Alamofire.request(hkURL).responseJSON{ response in
             switch response.result {
             case .success:
-                
+                print(hkURL)
                 if let json = response.result.value as? Dictionary<String, AnyObject> {
                     
-                    for month_index in Int(currentMonthIndex) ..< 12{
-                        print("month index: \(month_index)")
-                        let month = self.months[month_index]
-                        print("month: \(month)")
+                        //print("month index: \(month_index)")
+                        let month = self.months[currentMonthIndex]
+                        //print("month: \(month)")
+                        //print(hkURL)
+                        print("JSON SFSAFD: \(json)")
                         let month_hackathons = json[month] as! [Dictionary<String, AnyObject>]
-                        print(month_hackathons)
                         for case let result in month_hackathons{
                             let info = result as? [String: String]
                             self.hackathon = Hackathon(json: info!)
                             self.hackathons.append(self.hackathon)
                             
-                            print(self.hackathon.title)
+                            //print(self.hackathon.title)
                         }
-                    }
                 }
             case .failure(let error):
                 print(error)
