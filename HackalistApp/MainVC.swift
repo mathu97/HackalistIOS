@@ -19,6 +19,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        TableView.delegate = self
+        TableView.dataSource = self
         getData(API_URL: "https://Hackalist.github.io/api/1.0")
     }
     
@@ -86,6 +89,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                             
                             //prit(self.hackathon.title)
                         }
+                       self.TableView.reloadData()
                 }
             case .failure(let error):
                 print(error)
