@@ -9,14 +9,17 @@
 import UIKit
 import Alamofire
 
-class MainVC: UIViewController {
-    var hackathon : Hackathon!
+class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    
+    var hackathon : Hackathon?
     var hackathons = [Hackathon]() //Array of all hackathons
     var months = [String]() //Array of all months
     
+    @IBOutlet weak var TableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let hkData = getData(API_URL: "https://Hackalist.github.io/api/1.0")
+        getData(API_URL: "https://Hackalist.github.io/api/1.0")
     }
     
     func getData(API_URL : String){
@@ -79,9 +82,9 @@ class MainVC: UIViewController {
                         for case let result in month_hackathons{
                             let info = result as? [String: String]
                             self.hackathon = Hackathon(json: info!)
-                            self.hackathons.append(self.hackathon)
+                            self.hackathons.append(self.hackathon!)
                             
-                            //print(self.hackathon.title)
+                            //prit(self.hackathon.title)
                         }
                 }
             case .failure(let error):
@@ -89,6 +92,26 @@ class MainVC: UIViewController {
             }
         }
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return hackathons.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = TableView.dequeueReusableCell(withIdentifier: "hackathonCell", for: indexPath) as? HackathonCell {
+            let newHackathon = hackathons[indexPath.row]
+            cell.configureCell(hackathon: newHackathon)
+            return cell
+        }else{
+            return HackathonCell() //Return an empty weather cell
+        }
+        
+    }
+    
     
 }
 
