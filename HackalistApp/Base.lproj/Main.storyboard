@@ -21,10 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vmv-aL-N29">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="141"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jp5-PC-gAY">
                                 <rect key="frame" x="0.0" y="140" width="375" height="527"/>
                                 <color key="backgroundColor" red="0.98039215686274506" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -34,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T04-co-YkC" id="rby-dF-6wZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdS-Uq-2eG">
@@ -77,17 +73,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tHR-PJ-Hl7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="132"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Jp5-PC-gAY" firstAttribute="top" secondItem="tHR-PJ-Hl7" secondAttribute="bottom" constant="8" id="4Sw-VY-ROZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jp5-PC-gAY" secondAttribute="bottom" id="5X3-8k-K0O"/>
-                            <constraint firstAttribute="trailing" secondItem="Vmv-aL-N29" secondAttribute="trailing" id="BWe-3y-jDQ"/>
                             <constraint firstAttribute="trailing" secondItem="Jp5-PC-gAY" secondAttribute="trailing" id="Hb2-N8-Jjg"/>
-                            <constraint firstItem="Vmv-aL-N29" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="I3y-K2-fYr"/>
+                            <constraint firstItem="tHR-PJ-Hl7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JO7-K5-6aS"/>
                             <constraint firstItem="Jp5-PC-gAY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KeN-Rt-ebl"/>
                             <constraint firstItem="Jp5-PC-gAY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="120" id="LCh-IT-RIX"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Vmv-aL-N29" secondAttribute="bottom" constant="526" id="McF-e4-r97"/>
-                            <constraint firstItem="Vmv-aL-N29" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="kkO-Ys-kFF"/>
+                            <constraint firstAttribute="trailing" secondItem="tHR-PJ-Hl7" secondAttribute="trailing" id="Zts-0f-sFd"/>
+                            <constraint firstItem="tHR-PJ-Hl7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mgr-fq-rea"/>
                         </constraints>
                     </view>
                     <connections>
