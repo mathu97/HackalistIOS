@@ -69,25 +69,20 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     func apiRequest(hkURL : URL, currentMonthIndex : Int, completed: @escaping DownloadComplete){
         //Gets hackathosn for the current month and adds the hackathon objects to the hackathons array
-        print(hkURL)
+
         Alamofire.request(hkURL).responseJSON{ response in
             switch response.result {
             case .success:
-                print(hkURL)
+
                 if let json = response.result.value as? Dictionary<String, AnyObject> {
                     
-                        //print("month index: \(month_index)")
                         let month = self.months[currentMonthIndex]
-                        //print("month: \(month)")
-                        //print(hkURL)
-                        print("JSON SFSAFD: \(json)")
                         let month_hackathons = json[month] as! [Dictionary<String, AnyObject>]
                         for case let result in month_hackathons{
                             let info = result as? [String: String]
                             self.hackathon = Hackathon(json: info!)
                             self.hackathons.append(self.hackathon!)
                             
-                            //prit(self.hackathon.title)
                         }
                        self.TableView.reloadData()
                 }
