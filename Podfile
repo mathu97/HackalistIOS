@@ -8,4 +8,6 @@ target 'HackalistApp' do
   # Pods for HackalistApp
 
   pod 'Alamofire', '~> 4.4'
+  pod 'TwitterKit'
+  
 end
