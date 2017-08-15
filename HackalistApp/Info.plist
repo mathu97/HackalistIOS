@@ -46,5 +46,19 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+	  <dict>
+	    <key>CFBundleURLSchemes</key>
+	    <array>
+	      <string>twitterkit-UcS1ESWQ5QSjKox4ClG5CDyyO</string>
+	    </array>
+	  </dict>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+	    <string>twitter</string>
+	    <string>twitterauth</string>
+	</array>
 </dict>
 </plist>
