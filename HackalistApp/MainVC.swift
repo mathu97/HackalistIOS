@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 
 class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
+
     
     var hackathon : Hackathon?
     var hackathons = [Hackathon]() //Array of all hackathons
@@ -63,13 +64,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
             monthURL = API_URL + "/" + String(year) + "/" + month + ".json"
             hkURL = URL(string: monthURL)!
-            apiRequest(hkURL: hkURL, currentMonthIndex: i-1){}
+            dataApiRequest(hkURL: hkURL, currentMonthIndex: i-1){}
         }
     }
     
-    func apiRequest(hkURL : URL, currentMonthIndex : Int, completed: @escaping DownloadComplete){
+    func dataApiRequest(hkURL : URL, currentMonthIndex : Int, completed: @escaping DownloadComplete){
         //Gets hackathosn for the current month and adds the hackathon objects to the hackathons array
-
         Alamofire.request(hkURL).responseJSON{ response in
             switch response.result {
             case .success:
@@ -81,6 +81,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                         for case let result in month_hackathons{
                             let info = result as? [String: String]
                             self.hackathon = Hackathon(json: info!)
+                            print("twitter screen name : \(self.hackathon!.twitterScreenName), title : \(self.hackathon!.title)")
                             self.hackathons.append(self.hackathon!)
                             
                         }
@@ -90,6 +91,18 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 print(error)
             }
         }
+    }
+    
+    func twitterImgApiRequest(url: URL, screenName: String){
+
+        let parameters: Parameters = ["screen_name": screenName]
+        
+        Alamofire.request(url, parameters: parameters).responseJSON{ response in
+            
+            
+            
+        }
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

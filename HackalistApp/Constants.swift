@@ -8,4 +8,5 @@
 
 import Foundation
 
+let TWITTER_IMG_URL = "https://api.twitter.com/1.1/users/show.json"
 typealias DownloadComplete = () -> ()
