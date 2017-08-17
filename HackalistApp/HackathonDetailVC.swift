@@ -15,10 +15,11 @@ class HackathonDetailVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func BackBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     
     /*
     // MARK: - Navigation

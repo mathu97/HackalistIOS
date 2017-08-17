@@ -25,6 +25,7 @@
                                 <rect key="frame" x="0.0" y="140" width="375" height="527"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hackathonCell" rowHeight="95" id="T04-co-YkC" customClass="HackathonCell" customModule="HackalistApp">
                                         <rect key="frame" x="0.0" y="28" width="375" height="95"/>
@@ -34,7 +35,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdS-Uq-2eG">
-                                                    <rect key="frame" x="8" y="5" width="359" height="85"/>
+                                                    <rect key="frame" x="8" y="5.5" width="359" height="85"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iSZ-AS-bvq">
                                                             <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
@@ -46,8 +47,8 @@
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UOFT Hacks" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ka0-YM-V9w">
                                                             <rect key="frame" x="85" y="0.0" width="274" height="85"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -67,9 +68,10 @@
                                                 <constraint firstItem="bdS-Uq-2eG" firstAttribute="top" secondItem="rby-dF-6wZ" secondAttribute="top" constant="5" id="xoT-mx-p4m"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="HkLabel" destination="Ka0-YM-V9w" id="eoo-JC-D9C"/>
-                                            <segue destination="bLT-su-uho" kind="showDetail" id="NZG-Rc-kI5"/>
+                                            <segue destination="4bg-bM-P73" kind="showDetail" id="fJQ-ak-R1N"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -79,7 +81,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Jp5-PC-gAY" firstAttribute="top" secondItem="tHR-PJ-Hl7" secondAttribute="bottom" constant="8" id="4Sw-VY-ROZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jp5-PC-gAY" secondAttribute="bottom" id="5X3-8k-K0O"/>
@@ -99,36 +101,36 @@
             </objects>
             <point key="canvasLocation" x="116" y="123.68815592203899"/>
         </scene>
-        <!--HackathonDetailedVC-->
-        <scene sceneID="OZx-bM-8Rb">
+        <!--Hackathon DetailVC-->
+        <scene sceneID="9CV-QE-IBT">
             <objects>
-                <viewController id="bLT-su-uho" userLabel="HackathonDetailedVC" customClass="HackathonDetailVC" customModule="HackalistApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4bg-bM-P73" customClass="HackathonDetailVC" customModule="HackalistApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WaQ-iH-L5g"/>
-                        <viewControllerLayoutGuide type="bottom" id="vsq-sf-Jnk"/>
+                        <viewControllerLayoutGuide type="top" id="pc8-cT-yr8"/>
+                        <viewControllerLayoutGuide type="bottom" id="pyx-ej-i1M"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bsR-yS-0oO">
+                    <view key="view" contentMode="scaleToFill" id="X2A-Nt-wAo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftb-MD-HuB">
-                                <rect key="frame" x="302" y="28" width="57" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVf-Rx-yuo">
+                                <rect key="frame" x="16" y="28" width="42" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="BackBtnPressed:" destination="bLT-su-uho" eventType="touchUpInside" id="Lkf-Vv-1UC"/>
+                                    <action selector="BackBtnPressed:" destination="4bg-bM-P73" eventType="touchUpInside" id="YCK-Wj-P9q"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nys-rG-559" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ix-Tc-H0b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="973.60000000000002" y="123.68815592203899"/>
+            <point key="canvasLocation" x="1292" y="123.68815592203899"/>
         </scene>
     </scenes>
 </document>
