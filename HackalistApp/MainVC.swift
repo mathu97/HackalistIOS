@@ -70,7 +70,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     func dataApiRequest(hkURL : URL, currentMonthIndex : Int, completed: @escaping DownloadComplete){
         //Gets hackathosn for the current month and adds the hackathon objects to the hackathons array
-        Alamofire.request(hkURL).responseJSON{ response in
+        Alamofire.request(hkURL).responseJSON(completionHandler: { response in
             switch response.result {
             case .success:
 
@@ -81,7 +81,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                         for case let result in month_hackathons{
                             let info = result as? [String: String]
                             self.hackathon = Hackathon(json: info!)
-                            print("twitter screen name : \(self.hackathon!.twitterScreenName), title : \(self.hackathon!.title)")
                             self.hackathons.append(self.hackathon!)
                             
                         }
@@ -90,19 +89,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             case .failure(let error):
                 print(error)
             }
-        }
-    }
-    
-    func twitterImgApiRequest(url: URL, screenName: String){
-
-        let parameters: Parameters = ["screen_name": screenName]
-        
-        Alamofire.request(url, parameters: parameters).responseJSON{ response in
             
-            
-            
-        }
-        
+            completed()
+        })
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -119,7 +108,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             cell.configureCell(hackathon: newHackathon)
             return cell
         }else{
-            return HackathonCell() //Return an empty weather cell
+            return HackathonCell() //Return an empty hackathon cell
         }
         
     }

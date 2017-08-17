@@ -20,8 +20,7 @@ class Hackathon{
     _twitterURL,
     _googlePlusURL,
     _cost,
-    _notes,
-    _twitterScreenName: String!
+    _notes: String!
     
     private var _year,
     _length,
@@ -83,13 +82,6 @@ class Hackathon{
             _twitterURL = ""
         }
         return _twitterURL
-    }
-    
-    var twitterScreenName : String{
-        if _twitterScreenName == nil{
-            _twitterScreenName = ""
-        }
-        return _twitterScreenName
     }
     
     var googlePlusURL : String{
@@ -181,9 +173,6 @@ class Hackathon{
         
         self._length = Int(json["length"]!)
         self._size = Int(json["size"]!)
-        
-        //Get the twtitter screen name of the hackathon from it's url
-        self._twitterScreenName = self._twitterURL.replacingOccurrences(of: "https://twitter.com/", with: "").replacingOccurrences(of: "/", with: "")
         
     }
 }
