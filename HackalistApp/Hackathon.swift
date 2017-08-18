@@ -143,15 +143,41 @@ class Hackathon{
     
     
     init(json : [String: String]){
-        self._title = json["title"]
-        self._webURL = json["url"]
-        self._location = json["city"]
-        self._host = json["host"]
-        self._startDate = json["startDate"]
-        self._endDate = json["endDate"]
-        self._fbURL = json["facebookURL"]
-        self._twitterURL = json["twitterURL"]
-        self._googlePlusURL = json["googlePlusURL"]
+        if let title = json["title"]{
+            self._title = title
+        }
+        
+        if let webURL = json["url"] {
+            self._webURL = webURL
+        }
+
+        if let location = json["city"] {
+            self._location = location
+        }
+        
+        if let host = json["host"] {
+            self._host = host
+        }
+        
+        if let startDate = json["startDate"] {
+            self._startDate = startDate
+        }
+        
+        if let endDate = json["endDate"] {
+            self._endDate = endDate
+        }
+        
+        if let fbURL = json["facebookURL"] {
+            self._fbURL = fbURL
+        }
+        
+        if let twitterURL = json["twitterURL"] {
+            self._twitterURL = twitterURL
+        }
+
+        if let googlePlusURL = json["googlePlusURL"] {
+            self._googlePlusURL = googlePlusURL
+        }
         
         if (json["travel"] == "yes"){
             self._travel = true
@@ -171,12 +197,22 @@ class Hackathon{
             self._prize = false
         }
         
-        if let length = json["length"] as? Int {
-            self._length = length
+        if let length = json["length"] {
+            if Int(length) != nil{
+                self._length = Int(length)
+            } else {
+                self._length = 0
+            }
+            
         }
         
-        if let size = json["size"] as? Int {
-            self._size = size
+        if let size = json["size"] {
+            if Int(size) != nil {
+                self._size = Int(size)
+            } else {
+                self._size = 0
+            }
+            
         }
         
         

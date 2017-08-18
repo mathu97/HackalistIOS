@@ -81,6 +81,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                         for case let result in month_hackathons{
                             let info = result as? [String: String]
                             self.hackathon = Hackathon(json: info!)
+                            print("title: \(self.hackathon?.title)")
+                            print("length: \(self.hackathon?.length)")
+                            print("size:\(self.hackathon?.size)")
                             self.hackathons.append(self.hackathon!)
                             
                         }
