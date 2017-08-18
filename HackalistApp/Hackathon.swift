@@ -171,8 +171,15 @@ class Hackathon{
             self._prize = false
         }
         
-        self._length = Int(json["length"]!)
-        self._size = Int(json["size"]!)
+        if let length = json["length"] as? Int {
+            self._length = length
+        }
+        
+        if let size = json["size"] as? Int {
+            self._size = size
+        }
+        
+        
         
     }
 }
