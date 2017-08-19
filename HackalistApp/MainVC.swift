@@ -81,9 +81,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                         for case let result in month_hackathons{
                             let info = result as? [String: String]
                             self.hackathon = Hackathon(json: info!)
-                            print("title: \(self.hackathon?.title)")
-                            print("length: \(self.hackathon?.length)")
-                            print("size:\(self.hackathon?.size)")
                             self.hackathons.append(self.hackathon!)
                             
                         }
@@ -95,6 +92,23 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             
             completed()
         })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "HackathonDetailVC" {
+            if let detailsVC = segue.destination as? HackathonDetailVC {
+                if let hacks = sender as? Hackathon {
+                    detailsVC.hackathon = hacks
+                }
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var hacks: Hackathon!
+        hacks = hackathons[indexPath.row]
+        performSegue(withIdentifier: "HackathonDetailVC", sender: hacks)
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -115,6 +129,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
         
     }
+    
     
     
 }
