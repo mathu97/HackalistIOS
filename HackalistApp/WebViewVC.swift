@@ -8,16 +8,18 @@
 
 import UIKit
 
-class WebViewVC: UIViewController {
+class WebViewVC: UIViewController, UIWebViewDelegate {
     var hackathon: Hackathon!
     
     @IBOutlet weak var mainWebView: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainWebView.delegate = self
+        
         let url = URL(string: hackathon.webURL)
         let requestObj = URLRequest(url: url!)
-        
+
         mainWebView.loadRequest(requestObj)
         // Do any additional setup after loading the view.
     }
