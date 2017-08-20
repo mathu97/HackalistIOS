@@ -35,7 +35,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T04-co-YkC" id="rby-dF-6wZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdS-Uq-2eG">
@@ -212,7 +212,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tjf-a2-DaV">
-                                <rect key="frame" x="0.0" y="58" width="375" height="609"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6M-ps-UAn">
@@ -240,16 +240,22 @@
                                     <constraint firstItem="k2V-2W-R3k" firstAttribute="top" secondItem="q6M-ps-UAn" secondAttribute="top" constant="11" id="s4J-7u-Uom"/>
                                 </constraints>
                             </view>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h04-tF-AYk">
+                                <rect key="frame" x="0.0" y="58" width="375" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="h04-tF-AYk" firstAttribute="top" secondItem="q6M-ps-UAn" secondAttribute="bottom" id="27Q-aP-F9k"/>
+                            <constraint firstAttribute="trailing" secondItem="Tjf-a2-DaV" secondAttribute="trailing" id="3LE-aB-Vz9"/>
                             <constraint firstAttribute="trailing" secondItem="q6M-ps-UAn" secondAttribute="trailing" id="7ka-ba-3Se"/>
-                            <constraint firstItem="0HG-OC-n7v" firstAttribute="top" secondItem="Tjf-a2-DaV" secondAttribute="bottom" id="JXZ-Og-84q"/>
+                            <constraint firstItem="Tjf-a2-DaV" firstAttribute="leading" secondItem="ic3-Hb-IhO" secondAttribute="leading" id="AOR-FE-rUq"/>
+                            <constraint firstAttribute="trailing" secondItem="h04-tF-AYk" secondAttribute="trailing" id="KiW-2R-o2I"/>
                             <constraint firstItem="q6M-ps-UAn" firstAttribute="top" secondItem="ic3-Hb-IhO" secondAttribute="top" id="Q3f-67-aaI"/>
-                            <constraint firstItem="Tjf-a2-DaV" firstAttribute="top" secondItem="q6M-ps-UAn" secondAttribute="bottom" id="bHO-1h-ZMs"/>
-                            <constraint firstItem="Tjf-a2-DaV" firstAttribute="leading" secondItem="ic3-Hb-IhO" secondAttribute="leading" id="iK3-Dp-Rxj"/>
+                            <constraint firstItem="0HG-OC-n7v" firstAttribute="top" secondItem="Tjf-a2-DaV" secondAttribute="bottom" id="WYn-Ip-oKb"/>
+                            <constraint firstItem="Tjf-a2-DaV" firstAttribute="top" secondItem="h04-tF-AYk" secondAttribute="bottom" id="YMx-wl-nmP"/>
                             <constraint firstItem="q6M-ps-UAn" firstAttribute="leading" secondItem="ic3-Hb-IhO" secondAttribute="leading" id="nVe-4I-IeX"/>
-                            <constraint firstAttribute="trailing" secondItem="Tjf-a2-DaV" secondAttribute="trailing" id="p7f-IM-zV8"/>
+                            <constraint firstItem="h04-tF-AYk" firstAttribute="leading" secondItem="ic3-Hb-IhO" secondAttribute="leading" id="u3O-yh-q3f"/>
                         </constraints>
                     </view>
                     <connections>
