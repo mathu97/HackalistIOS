@@ -35,7 +35,7 @@ class WebViewVC: UIViewController, UIWebViewDelegate {
     
     func webViewDidStartLoad(_ webView: UIWebView) {
         progressBar.progress = 0.0
-        timeBool = false
+        timeBool = true
         timer = Timer.scheduledTimer(timeInterval: 0.15, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
     }
     
@@ -47,22 +47,24 @@ class WebViewVC: UIViewController, UIWebViewDelegate {
     func timerCallBack() {
         var updatedProgress: Float
         
-        if timeBool != nil {
-            if progressBar.progress >=  1 {
-                progressBar.isHidden = true
-                timer.invalidate()
+        if timeBool == true {
+            
+            if progressBar.progress >=  0.95 {
+                updatedProgress = 0.95
             } else {
-                updatedProgress = progressBar.progress + 0.1
+                updatedProgress = progressBar.progress + 0.05
                 progressBar.setProgress(updatedProgress, animated: true)
                 
             }
         } else {
-            updatedProgress = progressBar.progress + 0.05
-            progressBar.setProgress(updatedProgress, animated: true)
-            if updatedProgress >= 0.95 {
-                updatedProgress = 0.95
+            while progressBar.progress < 1 {
+                //Finish the loading animation
+                print("enterswsss")
+                updatedProgress = progressBar.progress + 0.1
                 progressBar.setProgress(updatedProgress, animated: true)
             }
+            progressBar.isHidden = true
+            timer.invalidate()
         }
         
     }
