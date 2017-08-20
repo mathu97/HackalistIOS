@@ -212,10 +212,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tjf-a2-DaV">
-                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                                <rect key="frame" x="0.0" y="58" width="375" height="609"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6M-ps-UAn">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6M-ps-UAn" userLabel="navBar View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2V-2W-R3k">
@@ -246,20 +246,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="h04-tF-AYk" firstAttribute="top" secondItem="q6M-ps-UAn" secondAttribute="bottom" id="27Q-aP-F9k"/>
-                            <constraint firstAttribute="trailing" secondItem="Tjf-a2-DaV" secondAttribute="trailing" id="3LE-aB-Vz9"/>
+                            <constraint firstItem="Tjf-a2-DaV" firstAttribute="top" secondItem="q6M-ps-UAn" secondAttribute="bottom" id="10m-OR-7ZE"/>
+                            <constraint firstAttribute="trailing" secondItem="Tjf-a2-DaV" secondAttribute="trailing" id="3rI-LW-QaO"/>
                             <constraint firstAttribute="trailing" secondItem="q6M-ps-UAn" secondAttribute="trailing" id="7ka-ba-3Se"/>
-                            <constraint firstItem="Tjf-a2-DaV" firstAttribute="leading" secondItem="ic3-Hb-IhO" secondAttribute="leading" id="AOR-FE-rUq"/>
-                            <constraint firstAttribute="trailing" secondItem="h04-tF-AYk" secondAttribute="trailing" id="KiW-2R-o2I"/>
+                            <constraint firstItem="Tjf-a2-DaV" firstAttribute="leading" secondItem="ic3-Hb-IhO" secondAttribute="leading" id="KZB-PG-TZ0"/>
+                            <constraint firstItem="h04-tF-AYk" firstAttribute="top" secondItem="q6M-ps-UAn" secondAttribute="bottom" id="PZh-mf-MOl"/>
                             <constraint firstItem="q6M-ps-UAn" firstAttribute="top" secondItem="ic3-Hb-IhO" secondAttribute="top" id="Q3f-67-aaI"/>
-                            <constraint firstItem="0HG-OC-n7v" firstAttribute="top" secondItem="Tjf-a2-DaV" secondAttribute="bottom" id="WYn-Ip-oKb"/>
-                            <constraint firstItem="Tjf-a2-DaV" firstAttribute="top" secondItem="h04-tF-AYk" secondAttribute="bottom" id="YMx-wl-nmP"/>
+                            <constraint firstAttribute="trailing" secondItem="h04-tF-AYk" secondAttribute="trailing" id="QwD-BX-g3X"/>
+                            <constraint firstItem="0HG-OC-n7v" firstAttribute="top" secondItem="Tjf-a2-DaV" secondAttribute="bottom" id="Wec-aG-Jfg"/>
+                            <constraint firstItem="h04-tF-AYk" firstAttribute="leading" secondItem="ic3-Hb-IhO" secondAttribute="leading" id="dPh-fC-5Pk"/>
                             <constraint firstItem="q6M-ps-UAn" firstAttribute="leading" secondItem="ic3-Hb-IhO" secondAttribute="leading" id="nVe-4I-IeX"/>
-                            <constraint firstItem="h04-tF-AYk" firstAttribute="leading" secondItem="ic3-Hb-IhO" secondAttribute="leading" id="u3O-yh-q3f"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mainWebView" destination="Tjf-a2-DaV" id="aGa-sr-1fm"/>
+                        <outlet property="progressBar" destination="h04-tF-AYk" id="hRR-ui-v8q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xgf-eK-XPZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

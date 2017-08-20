@@ -12,6 +12,10 @@ class WebViewVC: UIViewController, UIWebViewDelegate {
     var hackathon: Hackathon!
     
     @IBOutlet weak var mainWebView: UIWebView!
+    @IBOutlet weak var progressBar: UIProgressView!
+    
+    var timeBool: Bool!
+    var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +32,38 @@ class WebViewVC: UIViewController, UIWebViewDelegate {
         dismiss(animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        progressBar.progress = 0.0
+        timeBool = false
+        timer = Timer.scheduledTimer(timeInterval: 0.15, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
     }
-    */
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        timeBool = false
 
+    }
+
+    func timerCallBack() {
+        var updatedProgress: Float
+        
+        if timeBool != nil {
+            if progressBar.progress >=  1 {
+                progressBar.isHidden = true
+                timer.invalidate()
+            } else {
+                updatedProgress = progressBar.progress + 0.1
+                progressBar.setProgress(updatedProgress, animated: true)
+                
+            }
+        } else {
+            updatedProgress = progressBar.progress + 0.05
+            progressBar.setProgress(updatedProgress, animated: true)
+            if updatedProgress >= 0.95 {
+                updatedProgress = 0.95
+                progressBar.setProgress(updatedProgress, animated: true)
+            }
+        }
+        
+    }
 }
