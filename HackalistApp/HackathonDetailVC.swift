@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import MapKit
 
 class HackathonDetailVC: UIViewController {
     var hackathon: Hackathon!
     
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var titleLbl: UILabel!
     
     override func viewDidLoad() {

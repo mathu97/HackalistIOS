@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -178,26 +178,34 @@
                                     <constraint firstItem="6tH-2w-2ht" firstAttribute="leading" secondItem="L15-fC-MnO" secondAttribute="leading" constant="116" id="wXO-wQ-EAR"/>
                                 </constraints>
                             </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pPx-W8-dyt">
+                                <rect key="frame" x="16" y="483" width="343" height="164"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="k0U-BB-b6a" secondAttribute="trailing" id="9Zj-rW-rJy"/>
                             <constraint firstItem="k0U-BB-b6a" firstAttribute="leading" secondItem="X2A-Nt-wAo" secondAttribute="leading" id="FtX-mK-4uR"/>
                             <constraint firstItem="L15-fC-MnO" firstAttribute="leading" secondItem="X2A-Nt-wAo" secondAttribute="leading" constant="16" id="WyN-pS-SAw"/>
+                            <constraint firstItem="pPx-W8-dyt" firstAttribute="leading" secondItem="L15-fC-MnO" secondAttribute="leading" id="X1k-d5-yyS"/>
+                            <constraint firstAttribute="bottom" secondItem="pPx-W8-dyt" secondAttribute="bottom" constant="20" symbolic="YES" id="YwF-3w-Xbo"/>
+                            <constraint firstItem="pPx-W8-dyt" firstAttribute="top" secondItem="L15-fC-MnO" secondAttribute="bottom" constant="8" symbolic="YES" id="bLb-sH-eJy"/>
                             <constraint firstItem="k0U-BB-b6a" firstAttribute="top" secondItem="X2A-Nt-wAo" secondAttribute="top" id="dQe-RO-nx3"/>
                             <constraint firstAttribute="trailing" secondItem="L15-fC-MnO" secondAttribute="trailing" constant="16" id="kN7-xM-pcW"/>
                             <constraint firstItem="L15-fC-MnO" firstAttribute="top" secondItem="k0U-BB-b6a" secondAttribute="bottom" constant="28" id="n9b-xn-eah"/>
                             <constraint firstItem="pyx-ej-i1M" firstAttribute="top" secondItem="L15-fC-MnO" secondAttribute="bottom" constant="192" id="thK-c7-s4q"/>
+                            <constraint firstItem="pPx-W8-dyt" firstAttribute="trailing" secondItem="L15-fC-MnO" secondAttribute="trailing" id="wFk-TI-FEe"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="pPx-W8-dyt" id="86o-YO-cXQ"/>
                         <outlet property="titleLbl" destination="p5i-dt-vxX" id="LxP-hU-qZs"/>
                         <segue destination="Xtt-dD-9gu" kind="show" identifier="WebViewVC" id="sSc-mO-Mlz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ix-Tc-H0b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1002" y="124"/>
+            <point key="canvasLocation" x="1000.8" y="123.68815592203899"/>
         </scene>
         <!--Web ViewVC-->
         <scene sceneID="0An-A7-qhs">
