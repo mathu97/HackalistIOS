@@ -18,8 +18,8 @@ class HackathonDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLbl.text = hackathon.title
+        setHackathonAddress()
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func BackBtnPressed(_ sender: Any) {
@@ -40,14 +40,19 @@ class HackathonDetailVC: UIViewController {
         performSegue(withIdentifier: "WebViewVC", sender: hackathon)
     }
     
-    /*
-    // MARK: - Navigation
+    func setHackathonAddress() {
+        let address = hackathon.location
+        print(address)
+        let geocoder = CLGeocoder()
+        
+        geocoder.geocodeAddressString(address) { (placemarks, error) in
+            // Process Response
+            if let placemark = placemarks?[0] {
+                self.mapView.addAnnotation(MKPlacemark(placemark: placemark))
+            }
+        }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

@@ -59,7 +59,6 @@ class WebViewVC: UIViewController, UIWebViewDelegate {
         } else {
             while progressBar.progress < 1 {
                 //Finish the loading animation
-                print("enterswsss")
                 updatedProgress = progressBar.progress + 0.1
                 progressBar.setProgress(updatedProgress, animated: true)
             }
