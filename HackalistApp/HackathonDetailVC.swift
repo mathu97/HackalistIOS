@@ -42,13 +42,16 @@ class HackathonDetailVC: UIViewController {
     
     func setHackathonAddress() {
         let address = hackathon.location
-        print(address)
         let geocoder = CLGeocoder()
         
         geocoder.geocodeAddressString(address) { (placemarks, error) in
             // Process Response
             if let placemark = placemarks?[0] {
+                //Adding the annotation
                 self.mapView.addAnnotation(MKPlacemark(placemark: placemark))
+                
+                //Zooming into added annotation
+                self.mapView.showAnnotations(self.mapView.annotations, animated: true)
             }
         }
 
