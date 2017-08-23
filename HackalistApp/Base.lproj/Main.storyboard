@@ -447,7 +447,9 @@
                     <connections>
                         <outlet property="mapView" destination="pPx-W8-dyt" id="86o-YO-cXQ"/>
                         <outlet property="titleLbl" destination="p5i-dt-vxX" id="LxP-hU-qZs"/>
-                        <segue destination="Xtt-dD-9gu" kind="show" identifier="WebViewVC" id="sSc-mO-Mlz"/>
+                        <segue destination="Xtt-dD-9gu" kind="show" identifier="WebView" id="sSc-mO-Mlz"/>
+                        <segue destination="Xtt-dD-9gu" kind="show" identifier="twitterView" id="hoA-dr-nu9"/>
+                        <segue destination="Xtt-dD-9gu" kind="show" identifier="facebookView" id="Yep-SV-yE9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ix-Tc-H0b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -534,4 +536,7 @@
         <image name="travelIcon" width="128" height="128"/>
         <image name="twitterIcon" width="128" height="128"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="sSc-mO-Mlz"/>
+    </inferredMetricsTieBreakers>
 </document>

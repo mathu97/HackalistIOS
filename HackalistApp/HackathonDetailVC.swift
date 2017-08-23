@@ -27,7 +27,7 @@ class HackathonDetailVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "WebViewVC" {
+        if segue.identifier == "WebView" || segue.identifier == "twitterView" || segue.identifier == "facebookView"{
             if let webVC = segue.destination as? WebViewVC {
                 if let hacks = sender as? Hackathon {
                     webVC.hackathon = hacks
@@ -37,7 +37,7 @@ class HackathonDetailVC: UIViewController {
     }
     
     @IBAction func webPageBtnPressed(_ sender: Any) {
-        performSegue(withIdentifier: "WebViewVC", sender: hackathon)
+        performSegue(withIdentifier: "WebView", sender: hackathon)
     }
     
     func setHackathonAddress() {
