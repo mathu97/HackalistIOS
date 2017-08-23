@@ -267,7 +267,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travel Reimbursement" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvp-3L-6gD">
-                                                        <rect key="frame" x="50" y="0.0" width="200" height="35"/>
+                                                        <rect key="frame" x="64.5" y="0.0" width="171" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="s9d-To-TVe"/>
                                                         </constraints>
@@ -298,7 +298,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prizes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuF-0r-oEL">
-                                                        <rect key="frame" x="50" y="0.0" width="200" height="35"/>
+                                                        <rect key="frame" x="126.5" y="0.0" width="47" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="GRU-EH-7OV"/>
                                                         </constraints>
@@ -329,7 +329,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High School Students" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqA-0e-mJp">
-                                                        <rect key="frame" x="50" y="0.0" width="200" height="35"/>
+                                                        <rect key="frame" x="67" y="0.0" width="166" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="m9L-uE-Yna"/>
                                                         </constraints>
@@ -357,13 +357,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Pe0-yL-e38">
                                         <rect key="frame" x="66" y="352" width="210" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydB-ZC-XJS">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydB-ZC-XJS">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="XZJ-AI-s2I"/>
                                                     <constraint firstAttribute="width" constant="40" id="uFc-Di-fel"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="Button" image="twitterIcon"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
@@ -375,7 +375,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="4ji-5m-5sT"/>
                                                     <constraint firstAttribute="width" constant="110" id="6DM-0O-VnB"/>
                                                 </constraints>
-                                                <state key="normal" title="Visit Website">
+                                                <state key="normal" title="View Website">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -385,13 +385,13 @@
                                                     <action selector="webPageBtnPressed:" destination="4bg-bM-P73" eventType="touchUpInside" id="tiB-R1-cRp"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2Y-bc-WKU">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2Y-bc-WKU">
                                                 <rect key="frame" x="170" y="0.0" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="BLr-uI-j0q"/>
                                                     <constraint firstAttribute="height" constant="40" id="o0E-ZX-jhP"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="Button" image="facebookIcon"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
@@ -509,4 +509,8 @@
             <point key="canvasLocation" x="2188" y="123.68815592203899"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="facebookIcon" width="128" height="128"/>
+        <image name="twitterIcon" width="128" height="128"/>
+    </resources>
 </document>
