@@ -31,6 +31,13 @@ class HackathonDetailVC: UIViewController {
             if let webVC = segue.destination as? WebViewVC {
                 if let hacks = sender as? Hackathon {
                     webVC.hackathon = hacks
+                    if segue.identifier == "WebView" {
+                        webVC.linkType = "WEBSITE"
+                    } else if segue.identifier == "twitterView" {
+                        webVC.linkType = "TWITTER"
+                    } else {
+                        webVC.linkType = "FACEBOOK"
+                    }
                 }
             }
         }
@@ -39,6 +46,15 @@ class HackathonDetailVC: UIViewController {
     @IBAction func webPageBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: "WebView", sender: hackathon)
     }
+    
+    @IBAction func twitterBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: "twitterView", sender: hackathon)
+    }
+    
+    @IBAction func fbBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: "facebookView", sender: hackathon)
+    }
+    
     
     func setHackathonAddress() {
         let address = hackathon.location

@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class WebViewVC: UIViewController, UIWebViewDelegate {
     var hackathon: Hackathon!
+    var linkType : String!
     
     @IBOutlet weak var mainWebView: UIWebView!
     @IBOutlet weak var progressBar: UIProgressView!
@@ -21,11 +23,25 @@ class WebViewVC: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         mainWebView.delegate = self
         
-        let url = URL(string: hackathon.webURL)
-        let requestObj = URLRequest(url: url!)
+        var urlString : String
+        if linkType == "WEB" {
+            urlString = hackathon.webURL
+        } else if linkType == "TWITTER" {
+            urlString = hackathon.twitterURL
+        } else {
+            urlString = hackathon.fbURL
+        }
+        if urlString == "" {
+            mainWebView.isHidden = true
+            progressBar.isHidden = true
+            self.view.makeToast("No \(linkType.lowercased()) page for this Hackathon", duration: 3.0, position: .bottom)
+        } else {
+            let url = URL(string: urlString)
+            print("URL: \(urlString)")
+            let requestObj = URLRequest(url: url!)
+            mainWebView.loadRequest(requestObj)
+        }
 
-        mainWebView.loadRequest(requestObj)
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func DoneBtnPressed(_ sender: Any) {
@@ -67,4 +83,5 @@ class WebViewVC: UIViewController, UIWebViewDelegate {
         }
         
     }
+    
 }
