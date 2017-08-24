@@ -5,5 +5,6 @@ IOS app that helps users choose Hackathons that meet their specific needs.
 * xCode 8.3
 
 Dependancies:
-  * Alamofire Cocoapod
+  * Alamofire Cocoapod - https://github.com/Alamofire/Alamofire
+  * Toast-Swift Cocoapod - https://github.com/scalessec/Toast-Swift
  
