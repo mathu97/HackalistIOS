@@ -14,6 +14,14 @@ class HackathonDetailVC: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var locationLbl: UILabel!
+    @IBOutlet weak var capacityLbl: UILabel!
+    @IBOutlet weak var costLbl: UILabel!
+    @IBOutlet weak var travelReimbursementImg: UIImageView!
+    @IBOutlet weak var prizesImg: UIImageView!
+    @IBOutlet weak var highSchoolImg: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +40,7 @@ class HackathonDetailVC: UIViewController {
                 if let hacks = sender as? Hackathon {
                     webVC.hackathon = hacks
                     if segue.identifier == "WebView" {
-                        webVC.linkType = "WEBSITE"
+                        webVC.linkType = "WEB"
                     } else if segue.identifier == "twitterView" {
                         webVC.linkType = "TWITTER"
                     } else {
