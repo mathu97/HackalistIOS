@@ -37,7 +37,6 @@ class WebViewVC: UIViewController, UIWebViewDelegate {
             self.view.makeToast("No \(linkType.lowercased()) page for this Hackathon", duration: 3.0, position: .bottom)
         } else {
             let url = URL(string: urlString)
-            print("URL: \(urlString)")
             let requestObj = URLRequest(url: url!)
             mainWebView.loadRequest(requestObj)
         }
