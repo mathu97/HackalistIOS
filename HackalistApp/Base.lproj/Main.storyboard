@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,7 +36,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T04-co-YkC" id="rby-dF-6wZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdS-Uq-2eG">
@@ -451,8 +451,15 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="capacityLbl" destination="zZX-Hc-lKl" id="2QW-Xa-GuI"/>
+                        <outlet property="costLbl" destination="GX0-I0-yBB" id="ANM-23-2YT"/>
+                        <outlet property="dateLbl" destination="WU0-AO-I9T" id="yST-Gp-Hpk"/>
+                        <outlet property="highSchoolImg" destination="NSV-8B-cJ8" id="24F-bQ-xBN"/>
+                        <outlet property="locationLbl" destination="H9Y-iP-v0M" id="iCX-Xn-uI0"/>
                         <outlet property="mapView" destination="pPx-W8-dyt" id="86o-YO-cXQ"/>
+                        <outlet property="prizesImg" destination="VMP-EV-Gwo" id="kML-80-Dv5"/>
                         <outlet property="titleLbl" destination="p5i-dt-vxX" id="LxP-hU-qZs"/>
+                        <outlet property="travelReimbursementImg" destination="D8K-MY-iPB" id="pnB-4O-VhP"/>
                         <segue destination="Xtt-dD-9gu" kind="show" identifier="WebView" id="sSc-mO-Mlz"/>
                         <segue destination="Xtt-dD-9gu" kind="show" identifier="twitterView" id="hoA-dr-nu9"/>
                         <segue destination="Xtt-dD-9gu" kind="show" identifier="facebookView" id="Yep-SV-yE9"/>
