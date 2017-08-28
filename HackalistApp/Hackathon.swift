@@ -215,6 +215,14 @@ class Hackathon{
             
         }
         
+        if let cost = json["cost"] {
+            if cost == "free" {
+                self._cost = "Free"
+            } else {
+                self._cost = cost
+            }
+        }
+        
         
         
     }
