@@ -25,9 +25,41 @@ class HackathonDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLbl.text = hackathon.title
+        setInfo()
         setHackathonAddress()
 
+    }
+    
+    func setInfo() {
+        var date: String
+        date = "\(hackathon.startDate) - \(hackathon.endDate)"
+        dateLbl.text = date
+        
+        titleLbl.text = hackathon.title
+        locationLbl.text = hackathon.location
+        capacityLbl.text = "\(hackathon.size) people"
+        costLbl.text = hackathon.cost
+        
+        if hackathon.travel {
+            //If there is travel reimbursement is provided
+            travelReimbursementImg.image = UIImage(named: "checkIcon")
+        } else {
+            travelReimbursementImg.image = UIImage(named: "closeIcon")
+        }
+        
+        if hackathon.prize {
+            //If there are prizes in the hackathon
+            prizesImg.image = UIImage(named: "checkIcon")
+        } else {
+            prizesImg.image = UIImage(named: "closeIcon")
+        }
+        
+        if hackathon.highSchoolers {
+            //If there are prizes in the hackathon
+            highSchoolImg.image = UIImage(named: "checkIcon")
+        } else {
+            highSchoolImg.image = UIImage(named: "closeIcon")
+        }
     }
     
     @IBAction func BackBtnPressed(_ sender: Any) {

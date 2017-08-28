@@ -257,10 +257,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="X58-tf-b9p">
-                                        <rect key="frame" x="8" y="8" width="250" height="160"/>
+                                        <rect key="frame" x="8" y="8" width="300" height="160"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="0IR-Rr-QGr">
-                                                <rect key="frame" x="0.0" y="0.0" width="250" height="35"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="35"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dateIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Ykr-qP-bEX">
                                                         <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
@@ -270,9 +270,9 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="August 1 - September 26" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WU0-AO-I9T">
-                                                        <rect key="frame" x="50" y="0.0" width="200" height="35"/>
+                                                        <rect key="frame" x="50" y="0.0" width="250" height="35"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="200" id="c7y-ml-Hzc"/>
+                                                            <constraint firstAttribute="width" constant="250" id="c7y-ml-Hzc"/>
                                                             <constraint firstAttribute="height" constant="35" id="iI3-Nb-l1w"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -281,11 +281,11 @@
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="250" id="1bY-zF-g9A"/>
+                                                    <constraint firstAttribute="width" constant="300" id="1bY-zF-g9A"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="oYf-9s-r3e">
-                                                <rect key="frame" x="0.0" y="41.5" width="250" height="35"/>
+                                                <rect key="frame" x="0.0" y="41.5" width="300" height="35"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationIcon" translatesAutoresizingMaskIntoConstraints="NO" id="O70-wB-gnc">
                                                         <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
@@ -295,9 +295,9 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toronto, Ontario" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9Y-iP-v0M">
-                                                        <rect key="frame" x="50" y="0.0" width="200" height="35"/>
+                                                        <rect key="frame" x="50" y="0.0" width="250" height="35"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="200" id="MLy-5l-YnK"/>
+                                                            <constraint firstAttribute="width" constant="250" id="MLy-5l-YnK"/>
                                                             <constraint firstAttribute="height" constant="35" id="W6u-S6-PmI"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -306,11 +306,11 @@
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="250" id="932-wR-ymB"/>
+                                                    <constraint firstAttribute="width" constant="300" id="932-wR-ymB"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="9sj-2e-wjw">
-                                                <rect key="frame" x="0.0" y="83.5" width="250" height="35"/>
+                                                <rect key="frame" x="0.0" y="83.5" width="300" height="35"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="capacityIcon" translatesAutoresizingMaskIntoConstraints="NO" id="UWM-3d-W7E">
                                                         <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
@@ -320,10 +320,10 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capacity: 1000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZX-Hc-lKl">
-                                                        <rect key="frame" x="50" y="0.0" width="200" height="35"/>
+                                                        <rect key="frame" x="50" y="0.0" width="250" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="MpV-Xw-JGo"/>
-                                                            <constraint firstAttribute="width" constant="200" id="oq4-MY-og3"/>
+                                                            <constraint firstAttribute="width" constant="250" id="oq4-MY-og3"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -331,11 +331,11 @@
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="250" id="Xu6-t5-HII"/>
+                                                    <constraint firstAttribute="width" constant="300" id="Xu6-t5-HII"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="mmu-sv-Ceu">
-                                                <rect key="frame" x="0.0" y="125" width="250" height="35"/>
+                                                <rect key="frame" x="0.0" y="125" width="300" height="35"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="costIcon" translatesAutoresizingMaskIntoConstraints="NO" id="XWf-QF-Tg1">
                                                         <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
@@ -345,9 +345,9 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GX0-I0-yBB">
-                                                        <rect key="frame" x="50" y="0.0" width="200" height="35"/>
+                                                        <rect key="frame" x="50" y="0.0" width="250" height="35"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="200" id="7oG-W5-YhV"/>
+                                                            <constraint firstAttribute="width" constant="250" id="7oG-W5-YhV"/>
                                                             <constraint firstAttribute="height" constant="35" id="oAj-hd-oSW"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -356,12 +356,13 @@
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="250" id="SZ4-RI-g3P"/>
+                                                    <constraint firstAttribute="width" constant="300" id="SZ4-RI-g3P"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="160" id="ZLt-Ns-QLX"/>
+                                            <constraint firstAttribute="width" constant="300" id="oAn-g6-ePI"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
