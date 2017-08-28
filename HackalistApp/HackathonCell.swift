@@ -11,9 +11,11 @@ import UIKit
 class HackathonCell: UITableViewCell {
     
     @IBOutlet weak var HkLabel: UILabel!
+    @IBOutlet weak var letterLbl: UILabel!
 
     func configureCell(hackathon: Hackathon){
         HkLabel.text = hackathon.title
+        letterLbl.text = "\(hackathon.title.capitalized.characters.first!)"
     }
 
 }
