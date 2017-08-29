@@ -52,7 +52,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" red="0.84426554568527923" green="0.84426554568527923" blue="0.84426554568527923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="iM2-Vl-6c0" secondAttribute="trailing" constant="18" id="FPn-Hv-AnV"/>
                                                                 <constraint firstAttribute="width" constant="85" id="KTG-no-0RN"/>
@@ -88,6 +88,9 @@
                                                 <constraint firstItem="bdS-Uq-2eG" firstAttribute="leading" secondItem="rby-dF-6wZ" secondAttribute="leading" constant="8" id="sRE-ms-uYE"/>
                                                 <constraint firstItem="bdS-Uq-2eG" firstAttribute="top" secondItem="rby-dF-6wZ" secondAttribute="top" constant="5" id="xoT-mx-p4m"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
