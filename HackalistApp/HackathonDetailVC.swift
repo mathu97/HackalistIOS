@@ -30,6 +30,10 @@ class HackathonDetailVC: UIViewController {
 
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     func setInfo() {
         var date: String
         date = "\(hackathon.startDate) - \(hackathon.endDate)"

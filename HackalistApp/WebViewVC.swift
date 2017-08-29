@@ -42,6 +42,10 @@ class WebViewVC: UIViewController, UIWebViewDelegate {
         }
 
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
     @IBAction func DoneBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
