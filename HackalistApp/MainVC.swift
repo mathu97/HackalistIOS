@@ -15,7 +15,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var hackathon : Hackathon?
     var hackathons = [Hackathon]() //Array of all hackathons
     var months = [String]() //Array of all months
+    let group = DispatchGroup()
     
+
     @IBOutlet weak var TableView: UITableView!
     
     override func viewDidLoad() {
@@ -24,6 +26,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         TableView.delegate = self
         TableView.dataSource = self
         getData(API_URL: "https://Hackalist.github.io/api/1.0")
+
+        group.notify(queue: .main) {
+            //*****Can use this block to execute any code after all hackathon requests have been made
+        }
+        
     }
     
     func getData(API_URL : String){
@@ -55,6 +62,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         //Getting the hackathons for the current month + year
         for i in currentDateComp.month! ... 12{
+            group.enter()
             
             if i <= 9{
                 month = "0" + String(describing: i)
@@ -66,7 +74,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             hkURL = URL(string: monthURL)!
             dataApiRequest(hkURL: hkURL, currentMonthIndex: i-1){}
         }
+
     }
+    
     
     func dataApiRequest(hkURL : URL, currentMonthIndex : Int, completed: @escaping DownloadComplete){
         //Gets hackathosn for the current month and adds the hackathon objects to the hackathons array
@@ -89,6 +99,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             case .failure(let error):
                 print(error)
             }
+            
+            self.group.leave()
             
             completed()
         })
@@ -129,8 +141,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
         
     }
-    
-    
     
 }
 

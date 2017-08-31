@@ -20,10 +20,10 @@ class Hackathon{
     _twitterURL,
     _googlePlusURL,
     _cost,
-    _notes: String!
+    _notes,
+    _year : String!
     
-    private var _year,
-    _length,
+    private var _length,
     _size: Int!
     
     private var _travel, _highSchoolers, _prize : Bool
@@ -105,9 +105,9 @@ class Hackathon{
         return _notes
     }
     
-    var year : Int {
+    var year : String {
         if _year == nil{
-            _year = 0
+            _year = ""
         }
         
         return _year
@@ -197,6 +197,10 @@ class Hackathon{
             self._prize = false
         }
         
+        if let year = json["year"] {
+            self._year = year
+        }
+        
         if let length = json["length"] {
             if Int(length) != nil{
                 self._length = Int(length)
@@ -226,4 +230,29 @@ class Hackathon{
         
         
     }
+    
+//    static func < (lhs: Hackathon, rhs: Hackathon) -> Bool {
+//        let myFormatter = DateFormatter()
+//        myFormatter.dateFormat = "MM"
+//        
+//        let lhsMonthDateArray = lhs.startDate.components(separatedBy: " ")
+//        let rhsMonthDateArray = rhs.startDate.components(separatedBy: " ")
+//        
+//        let lhsMonth = myFormatter.date(from: lhsMonthDateArray[0])
+//        let rhsMonth = myFormatter.date(from: rhsMonthDateArray[0])
+//        
+//        myFormatter.dateFormat = "DD"
+//        let lhsDay = myFormatter.date(from: lhsMonthDateArray[1])
+//        let rhsDay = myFormatter.date(from: rhsMonthDateArray[1])
+//        
+//        myFormatter.dateFormat = "YYYY-MM-DD"
+//        let lhsDate = myFormatter.date(from: "\(lhs.year)-\(lhsMonth)-\(lhsDay)")
+//        let rhsDate = myFormatter.date(from: "\(rhs.year)-\(rhsMonth)-\(rhsDay)")
+//        
+//        print("enters less than")
+//        return lhsDate! < rhsDate!
+//    }
+
 }
+
+
