@@ -29,6 +29,15 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
         group.notify(queue: .main) {
             //*****Can use this block to execute any code after all hackathon requests have been made
+            if self.hackathons[0].lessThan(rhs: self.hackathons[1]) {
+                print("yes")
+                print("dates: \(self.hackathons[0].startDate)")
+                print("dates1: \(self.hackathons[1].startDate)")
+            } else {
+                print("no")
+                print("dates: \(self.hackathons[0].startDate)")
+                print("dates1: \(self.hackathons[1].startDate)")
+            }
         }
         
     }
