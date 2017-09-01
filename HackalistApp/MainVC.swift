@@ -29,15 +29,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
         group.notify(queue: .main) {
             //*****Can use this block to execute any code after all hackathon requests have been made
-            if self.hackathons[0].lessThan(rhs: self.hackathons[1]) {
-                print("yes")
-                print("dates: \(self.hackathons[0].startDate)")
-                print("dates1: \(self.hackathons[1].startDate)")
-            } else {
-                print("no")
-                print("dates: \(self.hackathons[0].startDate)")
-                print("dates1: \(self.hackathons[1].startDate)")
-            }
+            self.hackathons.sort(by: self.lessThanByDate)
         }
         
     }
@@ -149,6 +141,54 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             return HackathonCell() //Return an empty hackathon cell
         }
         
+    }
+
+    @IBAction func indexChanged(_ sender: Any) {
+        
+    }
+    
+    func lessThanByDate (lhs: Hackathon, rhs: Hackathon) -> Bool{
+        
+        //Returns true if lhs hackathon starts before rhs hackathon, else it returns false
+        
+        let myFormatter = DateFormatter()
+        myFormatter.dateFormat = "MM"
+        
+        let lhsMonthDateArray = lhs.startDate.components(separatedBy: " ")
+        let rhsMonthDateArray = rhs.startDate.components(separatedBy: " ")
+        
+        let lhsMonthDate = myFormatter.date(from: lhsMonthDateArray[0])!
+        let rhsMonthDate = myFormatter.date(from: rhsMonthDateArray[0])!
+        
+        let lhsMonth = Calendar.current.component(.month, from: lhsMonthDate)
+        let rhsMonth = Calendar.current.component(.month, from: rhsMonthDate)
+        
+        myFormatter.dateFormat = "yyyy-MM-dd"
+        
+        var lhsMonthfiller = ""
+        if lhsMonth < 10 {
+            lhsMonthfiller = "0"
+        }
+        
+        var rhsMonthfiller = ""
+        if rhsMonth < 10 {
+            rhsMonthfiller = "0"
+        }
+        
+        var lhsDayFiller = ""
+        if lhsMonthDateArray[1].characters.count < 2 {
+            lhsDayFiller = "0"
+        }
+        
+        var rhsDayFiller = ""
+        if rhsMonthDateArray[1].characters.count < 2 {
+            rhsDayFiller = "0"
+        }
+        
+        let lhsDate = myFormatter.date(from: "\(lhs.year)-\(lhsMonthfiller)\(lhsMonth)-\(lhsDayFiller)\(lhsMonthDateArray[1])")!
+        let rhsDate = myFormatter.date(from: "\(rhs.year)-\(rhsMonthfiller)\(rhsMonth)-\(rhsDayFiller)\(rhsMonthDateArray[1])")!
+        
+        return lhsDate < rhsDate
     }
     
 }

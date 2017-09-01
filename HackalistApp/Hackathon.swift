@@ -231,49 +231,6 @@ class Hackathon{
         
     }
     
-    func lessThan (rhs: Hackathon) -> Bool{
-        
-        //Returns if current hackathon starts before the given hackathon
-        
-        let myFormatter = DateFormatter()
-        myFormatter.dateFormat = "MM"
-        
-        let lhsMonthDateArray = self.startDate.components(separatedBy: " ")
-        let rhsMonthDateArray = rhs.startDate.components(separatedBy: " ")
-        
-        let lhsMonthDate = myFormatter.date(from: lhsMonthDateArray[0])!
-        let rhsMonthDate = myFormatter.date(from: rhsMonthDateArray[0])!
-        
-        let lhsMonth = Calendar.current.component(.month, from: lhsMonthDate)
-        let rhsMonth = Calendar.current.component(.month, from: rhsMonthDate)
-        
-        myFormatter.dateFormat = "yyyy-MM-dd"
-        
-        var lhsMonthfiller = ""
-        if lhsMonth < 10 {
-            lhsMonthfiller = "0"
-        }
-        
-        var rhsMonthfiller = ""
-        if rhsMonth < 10 {
-            rhsMonthfiller = "0"
-        }
-        
-        var lhsDayFiller = ""
-        if lhsMonthDateArray[1].characters.count < 2 {
-            lhsDayFiller = "0"
-        }
-        
-        var rhsDayFiller = ""
-        if rhsMonthDateArray[1].characters.count < 2 {
-            rhsDayFiller = "0"
-        }
-
-        let lhsDate = myFormatter.date(from: "\(self.year)-\(lhsMonthfiller)\(lhsMonth)-\(lhsDayFiller)\(lhsMonthDateArray[1])")!
-        let rhsDate = myFormatter.date(from: "\(rhs.year)-\(rhsMonthfiller)\(rhsMonth)-\(rhsDayFiller)\(rhsMonthDateArray[1])")!
-        
-        return lhsDate < rhsDate
-    }
 
 }
 
