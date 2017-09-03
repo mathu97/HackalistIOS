@@ -16,9 +16,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var hackathons = [Hackathon]() //Array of all hackathons
     var months = [String]() //Array of all months
     let group = DispatchGroup()
-    
+    var doneDownload = false
 
     @IBOutlet weak var TableView: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         getData(API_URL: "https://Hackalist.github.io/api/1.0")
 
         group.notify(queue: .main) {
+            self.doneDownload = true
             //*****Can use this block to execute any code after all hackathon requests have been made
-            self.hackathons.sort(by: self.lessThanByDate)
         }
         
     }
@@ -144,7 +145,18 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
 
     @IBAction func indexChanged(_ sender: Any) {
-        
+        switch segmentedControl.selectedSegmentIndex
+        {
+        case 0:
+            if doneDownload {
+                self.hackathons.sort(by: self.lessThanByDate)
+                self.TableView.reloadData()
+            }
+        case 1: //Not implemented yet
+            break
+        default:
+            break;
+        }
     }
     
     func lessThanByDate (lhs: Hackathon, rhs: Hackathon) -> Bool{
