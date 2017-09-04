@@ -153,7 +153,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 self.TableView.reloadData()
             }
         case 1: //Not implemented yet
-            break
+            if doneDownload {
+                self.hackathons.sort(by: self.lessThanByTitle)
+                self.TableView.reloadData()
+            }
         default:
             break;
         }
@@ -201,6 +204,16 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let rhsDate = myFormatter.date(from: "\(rhs.year)-\(rhsMonthfiller)\(rhsMonth)-\(rhsDayFiller)\(rhsMonthDateArray[1])")!
         
         return lhsDate < rhsDate
+    }
+    
+    func lessThanByTitle(lhs: Hackathon, rhs: Hackathon) -> Bool{
+        //Returns true if lhs hackathon title comes before rhs hackathon title, else it returns false
+        
+        if lhs.title.lowercased() < rhs.title.lowercased() {
+            return true
+        }
+        
+        return false
     }
     
 }
