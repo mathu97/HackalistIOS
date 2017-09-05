@@ -9,17 +9,21 @@
 import UIKit
 import Alamofire
 
-class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
 
     
     var hackathon : Hackathon?
     var hackathons = [Hackathon]() //Array of all hackathons
+    var filteredHackathons = [Hackathon]()
+    var doneDownload = false
+
     var months = [String]() //Array of all months
     let group = DispatchGroup()
-    var doneDownload = false
 
     @IBOutlet weak var TableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var searchBar: UISearchBar!
+    var inSearchMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +31,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         TableView.delegate = self
         TableView.dataSource = self
         getData(API_URL: "https://Hackalist.github.io/api/1.0")
-
+        
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done // Change the "Search" on keyboard to "Done"
+        
         group.notify(queue: .main) {
             self.doneDownload = true
             //*****Can use this block to execute any code after all hackathon requests have been made
@@ -130,16 +137,57 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if inSearchMode {
+            return filteredHackathons.count
+        }
+ 
         return hackathons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = TableView.dequeueReusableCell(withIdentifier: "hackathonCell", for: indexPath) as? HackathonCell {
-            let newHackathon = hackathons[indexPath.row]
+            var newHackathon: Hackathon!
+            
+            if inSearchMode {
+                newHackathon = filteredHackathons[indexPath.row]
+            }
+            else {
+                newHackathon = hackathons[indexPath.row]
+            }
+            
             cell.configureCell(hackathon: newHackathon)
             return cell
         }else{
             return HackathonCell() //Return an empty hackathon cell
+        }
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        view.endEditing(true)
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //This will be called, everytime we make a keystroke in the searchbar
+        
+        if searchBar.text == nil ||  searchBar.text == "" {
+            
+            inSearchMode = false
+            self.TableView.reloadData()
+            
+            view.endEditing(true) //Hide the keyboard
+            
+        } else {
+            inSearchMode = true
+            
+            let lower = searchBar.text!.lowercased()
+            print("lower: \(lower)")
+            
+            filteredHackathons = hackathons.filter({$0.title.range(of: lower) != nil})
+            print(filteredHackathons)
+            self.TableView.reloadData()
         }
         
     }

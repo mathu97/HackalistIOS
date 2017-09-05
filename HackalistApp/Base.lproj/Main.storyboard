@@ -32,7 +32,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T04-co-YkC" id="rby-dF-6wZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="bdS-Uq-2eG">
@@ -150,6 +150,7 @@
                     </view>
                     <connections>
                         <outlet property="TableView" destination="Jp5-PC-gAY" id="pjN-lA-4bs"/>
+                        <outlet property="searchBar" destination="na4-63-fMN" id="FLo-V7-dA7"/>
                         <outlet property="segmentedControl" destination="Fib-N8-ZVl" id="4f7-Cl-FCR"/>
                         <segue destination="4bg-bM-P73" kind="showDetail" identifier="HackathonDetailVC" id="8NY-JA-Piw"/>
                     </connections>

@@ -15,14 +15,8 @@ class HackathonCell: UITableViewCell {
 
     func configureCell(hackathon: Hackathon){
         HkLabel.text = hackathon.title
-//        letterLbl.text = "\(hackathon.title.capitalized.characters.first!)"
-//        
-//        let red = CGFloat(drand48())
-//        let green = CGFloat(drand48())
-//        let blue = CGFloat(drand48())
-//        
-//        letterBackground.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 0.75)
-//        print("enters colors")
+        letterLbl.text = "\(hackathon.title.capitalized.characters.first!)"
+
     }
 
 }
