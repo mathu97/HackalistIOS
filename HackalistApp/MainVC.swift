@@ -183,10 +183,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
             inSearchMode = true
             
             let lower = searchBar.text!.lowercased()
-            print("lower: \(lower)")
             
             filteredHackathons = hackathons.filter({$0.title.lowercased().range(of: lower) != nil})
-            print(filteredHackathons)
             self.TableView.reloadData()
         }
         
