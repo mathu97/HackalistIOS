@@ -163,6 +163,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 115
+    
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         view.endEditing(true)

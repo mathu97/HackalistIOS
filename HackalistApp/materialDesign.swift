@@ -6,7 +6,6 @@
 //  Copyright © 2017 Mathusan. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 private var materialKey = false
