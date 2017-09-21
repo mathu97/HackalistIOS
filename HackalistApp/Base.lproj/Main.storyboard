@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="116" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jp5-PC-gAY">
-                                <rect key="frame" x="0.0" y="118" width="375" height="549"/>
+                                <rect key="frame" x="0.0" y="118" width="375" height="500"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -147,17 +147,29 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAY-Ac-Ic0">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem systemItem="search" id="RMq-mi-hyH"/>
+                                    <tabBarItem systemItem="favorites" id="JvV-Jl-ql7"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="HiI-oA-aDD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3O5-PP-CbK"/>
                             <constraint firstAttribute="trailing" secondItem="Jp5-PC-gAY" secondAttribute="trailing" id="3ks-s0-kfF"/>
+                            <constraint firstAttribute="trailing" secondItem="OAY-Ac-Ic0" secondAttribute="trailing" id="MpV-E3-wqV"/>
                             <constraint firstAttribute="trailing" secondItem="HiI-oA-aDD" secondAttribute="trailing" id="VxR-0W-XHS"/>
+                            <constraint firstItem="OAY-Ac-Ic0" firstAttribute="top" secondItem="Jp5-PC-gAY" secondAttribute="bottom" id="XZ5-gM-dg0"/>
                             <constraint firstItem="Jp5-PC-gAY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eVu-lc-JIE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OAY-Ac-Ic0" secondAttribute="bottom" id="f94-zm-Kyk"/>
                             <constraint firstItem="HiI-oA-aDD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fC8-VL-nb2"/>
+                            <constraint firstItem="OAY-Ac-Ic0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kHA-hi-q7k"/>
                             <constraint firstItem="Jp5-PC-gAY" firstAttribute="top" secondItem="HiI-oA-aDD" secondAttribute="bottom" constant="8" id="ltv-FL-a6y"/>
                             <constraint firstItem="Jp5-PC-gAY" firstAttribute="top" secondItem="HiI-oA-aDD" secondAttribute="bottom" constant="8" id="mi1-5Y-t7D"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jp5-PC-gAY" secondAttribute="bottom" id="taf-uU-9kv"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jp5-PC-gAY" secondAttribute="bottom" constant="49" id="taf-uU-9kv"/>
                         </constraints>
                     </view>
                     <connections>
