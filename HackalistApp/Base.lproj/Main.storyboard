@@ -200,7 +200,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travel Reimbursement" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvp-3L-6gD">
-                                                        <rect key="frame" x="50" y="0.0" width="200" height="35"/>
+                                                        <rect key="frame" x="64.5" y="0.0" width="171" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="s9d-To-TVe"/>
                                                         </constraints>
@@ -468,7 +468,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVf-Rx-yuo">
-                                        <rect key="frame" x="8" y="11" width="41" height="30"/>
+                                        <rect key="frame" x="8" y="19" width="41" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="C5L-dU-Dfe"/>
                                             <constraint firstAttribute="width" constant="41" id="ofh-lQ-XdV"/>
@@ -481,8 +481,15 @@
                                             <action selector="BackBtnPressed:" destination="4bg-bM-P73" eventType="touchUpInside" id="YCK-Wj-P9q"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDb-lO-k1c">
+                                        <rect key="frame" x="320" y="19" width="39" height="30"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UOFT Hacks" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5i-dt-vxX">
-                                        <rect key="frame" x="67" y="8" width="272" height="51"/>
+                                        <rect key="frame" x="63" y="8" width="249" height="51"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -491,14 +498,18 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="kVf-Rx-yuo" secondAttribute="bottom" constant="26" id="0ST-h7-XkP"/>
+                                    <constraint firstAttribute="bottom" secondItem="kVf-Rx-yuo" secondAttribute="bottom" constant="18" id="0ST-h7-XkP"/>
                                     <constraint firstItem="p5i-dt-vxX" firstAttribute="top" secondItem="k0U-BB-b6a" secondAttribute="top" constant="8" id="AyP-gE-7Dk"/>
-                                    <constraint firstItem="kVf-Rx-yuo" firstAttribute="top" secondItem="k0U-BB-b6a" secondAttribute="top" constant="11" id="BT1-UM-pLl"/>
+                                    <constraint firstItem="kVf-Rx-yuo" firstAttribute="top" secondItem="k0U-BB-b6a" secondAttribute="top" constant="19" id="BT1-UM-pLl"/>
+                                    <constraint firstItem="GDb-lO-k1c" firstAttribute="top" secondItem="k0U-BB-b6a" secondAttribute="top" constant="19" id="BhZ-91-PJa"/>
                                     <constraint firstItem="kVf-Rx-yuo" firstAttribute="leading" secondItem="k0U-BB-b6a" secondAttribute="leading" constant="8" id="EXY-98-h6r"/>
+                                    <constraint firstItem="GDb-lO-k1c" firstAttribute="leading" secondItem="p5i-dt-vxX" secondAttribute="trailing" constant="8" id="RoM-h4-LXl"/>
                                     <constraint firstAttribute="bottom" secondItem="p5i-dt-vxX" secondAttribute="bottom" constant="8" id="UKq-cL-CNg"/>
-                                    <constraint firstItem="p5i-dt-vxX" firstAttribute="leading" secondItem="kVf-Rx-yuo" secondAttribute="trailing" constant="18" id="Z44-kj-oHg"/>
+                                    <constraint firstItem="p5i-dt-vxX" firstAttribute="leading" secondItem="kVf-Rx-yuo" secondAttribute="trailing" constant="14" id="Z44-kj-oHg"/>
                                     <constraint firstAttribute="height" constant="67" id="eqL-sn-4c7"/>
-                                    <constraint firstAttribute="trailing" secondItem="p5i-dt-vxX" secondAttribute="trailing" constant="36" id="rqc-va-mCC"/>
+                                    <constraint firstAttribute="trailing" secondItem="GDb-lO-k1c" secondAttribute="trailing" constant="16" id="ft0-ec-KWI"/>
+                                    <constraint firstAttribute="bottom" secondItem="GDb-lO-k1c" secondAttribute="bottom" constant="18" id="h7w-Bp-qx7"/>
+                                    <constraint firstAttribute="trailing" secondItem="p5i-dt-vxX" secondAttribute="trailing" constant="63" id="rqc-va-mCC"/>
                                 </constraints>
                             </view>
                         </subviews>
