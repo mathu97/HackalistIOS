@@ -176,7 +176,7 @@
                         <outlet property="TableView" destination="Jp5-PC-gAY" id="pjN-lA-4bs"/>
                         <outlet property="searchBar" destination="na4-63-fMN" id="FLo-V7-dA7"/>
                         <outlet property="segmentedControl" destination="Fib-N8-ZVl" id="4f7-Cl-FCR"/>
-                        <segue destination="4bg-bM-P73" kind="showDetail" identifier="HackathonDetailVC" id="8NY-JA-Piw"/>
+                        <segue destination="4bg-bM-P73" kind="show" identifier="HackathonDetailVC" action="showDetailViewController:sender:" id="8NY-JA-Piw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -243,7 +243,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prizes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuF-0r-oEL">
-                                                        <rect key="frame" x="50" y="0.0" width="200" height="35"/>
+                                                        <rect key="frame" x="126.5" y="0.0" width="47" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="dTQ-l9-lx5"/>
                                                         </constraints>
