@@ -63,7 +63,7 @@ class WebViewVC: UIViewController, UIWebViewDelegate {
 
     }
 
-    func timerCallBack() {
+    @objc func timerCallBack() {
         var updatedProgress: Float
         
         if timeBool == true {

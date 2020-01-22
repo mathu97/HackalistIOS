@@ -8,5 +8,5 @@ target 'HackalistApp' do
   # Pods for HackalistApp
 
   pod 'Alamofire', '~> 4.4'
-  pod 'Toast-Swift', '~> 2.0.0' 
+  pod 'Toast-Swift', '~> 4.0.1' 
 end
