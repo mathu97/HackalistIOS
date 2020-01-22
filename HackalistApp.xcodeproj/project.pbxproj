@@ -19,6 +19,7 @@
 		52D8E86B529010609E14798F /* Pods_HackalistApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2274F0697E0D8BB56F3BA73 /* Pods_HackalistApp.framework */; };
 		8212C08A1F0C96CA00008D1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8212C0891F0C96CA00008D1A /* Constants.swift */; };
 		8236D7B41F47E127001B54FA /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8236D7B31F47E127001B54FA /* WebViewVC.swift */; };
+		82497C9023D8EAEC00CBAA9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82497C8F23D8EAEC00CBAA9B /* SceneDelegate.swift */; };
 		8272BD741F489F1E003F575A /* materialDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8272BD731F489F1E003F575A /* materialDesign.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		234E553F1F460B4100402086 /* HackathonDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HackathonDetailVC.swift; sourceTree = "<group>"; };
 		8212C0891F0C96CA00008D1A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8236D7B31F47E127001B54FA /* WebViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
+		82497C8F23D8EAEC00CBAA9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8272BD731F489F1E003F575A /* materialDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = materialDesign.swift; sourceTree = "<group>"; };
 		A1EE3EAC976F53068B252671 /* Pods-HackalistApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackalistApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackalistApp/Pods-HackalistApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D2274F0697E0D8BB56F3BA73 /* Pods_HackalistApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackalistApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,7 @@
 				234250541EE99AD3005DA2C1 /* View */,
 				234250531EE99ACD005DA2C1 /* Model */,
 				2342503E1EE98BF6005DA2C1 /* AppDelegate.swift */,
+				82497C8F23D8EAEC00CBAA9B /* SceneDelegate.swift */,
 				234250421EE98BF6005DA2C1 /* Main.storyboard */,
 				234250481EE98BF6005DA2C1 /* Assets.xcassets */,
 				2342504A1EE98BF6005DA2C1 /* LaunchScreen.storyboard */,
@@ -256,6 +259,7 @@
 				234250471EE98BF6005DA2C1 /* HackalistApp.xcdatamodeld in Sources */,
 				234250591EE9A3D2005DA2C1 /* Hackathon.swift in Sources */,
 				234E55401F460B4100402086 /* HackathonDetailVC.swift in Sources */,
+				82497C9023D8EAEC00CBAA9B /* SceneDelegate.swift in Sources */,
 				8236D7B41F47E127001B54FA /* WebViewVC.swift in Sources */,
 				2342503F1EE98BF6005DA2C1 /* AppDelegate.swift in Sources */,
 				234250571EE99DD4005DA2C1 /* HackathonCell.swift in Sources */,
@@ -334,7 +338,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -387,7 +391,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -410,6 +414,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -427,6 +432,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

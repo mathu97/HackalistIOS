@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +9,7 @@
         <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="HackalistApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainViewController" id="BYZ-38-t0r" customClass="MainVC" customModule="HackalistApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -150,13 +149,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Jp5-PC-gAY" secondAttribute="trailing" id="1mD-Ws-Chq"/>
                             <constraint firstItem="HiI-oA-aDD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3O5-PP-CbK"/>
-                            <constraint firstAttribute="trailing" secondItem="Jp5-PC-gAY" secondAttribute="trailing" id="3ks-s0-kfF"/>
                             <constraint firstAttribute="trailing" secondItem="HiI-oA-aDD" secondAttribute="trailing" id="VxR-0W-XHS"/>
-                            <constraint firstItem="Jp5-PC-gAY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eVu-lc-JIE"/>
                             <constraint firstItem="HiI-oA-aDD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fC8-VL-nb2"/>
                             <constraint firstItem="Jp5-PC-gAY" firstAttribute="top" secondItem="HiI-oA-aDD" secondAttribute="bottom" constant="8" id="ltv-FL-a6y"/>
-                            <constraint firstItem="Jp5-PC-gAY" firstAttribute="top" secondItem="HiI-oA-aDD" secondAttribute="bottom" constant="8" id="mi1-5Y-t7D"/>
+                            <constraint firstItem="Jp5-PC-gAY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qnP-zb-YKA"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jp5-PC-gAY" secondAttribute="bottom" id="taf-uU-9kv"/>
                         </constraints>
                     </view>
@@ -548,11 +546,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tjf-a2-DaV">
-                                <rect key="frame" x="0.0" y="58" width="375" height="589"/>
+                                <rect key="frame" x="0.0" y="58" width="600" height="522"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6M-ps-UAn" userLabel="navBar View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="58"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2V-2W-R3k">
                                         <rect key="frame" x="8" y="11" width="48" height="33"/>
