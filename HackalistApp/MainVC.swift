@@ -20,15 +20,16 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
     var months = [String]() //Array of all months
     let group = DispatchGroup()
 
-    @IBOutlet weak var TableView: UITableView!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+  
+	@IBOutlet weak var TableView: UITableView!
+	@IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
     var inSearchMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        TableView.delegate = self
+
+		TableView.delegate = self
         TableView.dataSource = self
         getData(API_URL: "https://Hackalist.github.io/api/1.0")
         
