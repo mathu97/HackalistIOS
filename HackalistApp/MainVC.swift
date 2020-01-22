@@ -61,7 +61,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         
         self.months = myFormatter.monthSymbols  //Array of all months
         
-        let currentMonthIndex = self.months.index(of: curr_month)
+        let currentMonthIndex = self.months.firstIndex(of: curr_month)
 
         
         let year = calendar.component(.year, from: date)
@@ -243,12 +243,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         }
         
         var lhsDayFiller = ""
-        if lhsMonthDateArray[1].characters.count < 2 {
+        if lhsMonthDateArray[1].count < 2 {
             lhsDayFiller = "0"
         }
         
         var rhsDayFiller = ""
-        if rhsMonthDateArray[1].characters.count < 2 {
+        if rhsMonthDateArray[1].count < 2 {
             rhsDayFiller = "0"
         }
         

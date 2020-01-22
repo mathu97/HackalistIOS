@@ -15,7 +15,7 @@ class HackathonCell: UITableViewCell {
 
     func configureCell(hackathon: Hackathon){
         HkLabel.text = hackathon.title
-        letterLbl.text = "\(hackathon.title.capitalized.characters.first!)"
+		letterLbl.text = "\(hackathon.title.capitalized.prefix(1))"
 
     }
 
