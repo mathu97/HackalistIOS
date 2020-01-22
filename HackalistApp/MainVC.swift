@@ -34,6 +34,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done // Change the "Search" on keyboard to "Done"
+		searchBar.layer.borderWidth = 10
+		searchBar.layer.borderColor = UIColor.white.cgColor
         
         group.notify(queue: .main) {
             self.doneDownload = true
