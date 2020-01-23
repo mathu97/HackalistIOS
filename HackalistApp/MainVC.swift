@@ -123,6 +123,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
             if let detailsVC = segue.destination as? HackathonDetailVC {
                 if let hacks = sender as? Hackathon {
                     detailsVC.hackathon = hacks
+					detailsVC.navigationItem.title = hacks.title
                 }
             }
         }
