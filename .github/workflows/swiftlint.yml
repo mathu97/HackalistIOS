@@ -1,4 +1,4 @@
-name: Swift
+name: SwiftLint
 
 on:
   pull_request:
@@ -6,9 +6,15 @@ on:
       - '.github/workflows/swiftlint.yml'
       - '.swiftlint.yml'
       - '**/*.swift'
+
 jobs:
   SwiftLint:
     runs-on: ubuntu-latest
     steps:
-    - name: GitHub Action for SwiftLint
-      uses: norio-nomura/action-swiftlint@3.0.1
+      - uses: actions/checkout@v1
+      - name: GitHub Action for SwiftLint
+        uses: norio-nomura/action-swiftlint@3.0.1
+#       - name: GitHub Action for SwiftLint with --strict
+#         uses: norio-nomura/action-swiftlint@3.0.1
+#         with:
+#           args: --strict
