@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="116" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jp5-PC-gAY">
-                                <rect key="frame" x="0.0" y="157" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="95" width="375" height="572"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -115,10 +115,10 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HiI-oA-aDD">
-                                <rect key="frame" x="0.0" y="44" width="375" height="105"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="51"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Fib-N8-ZVl">
-                                        <rect key="frame" x="8" y="66" width="359" height="32"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fib-N8-ZVl">
+                                        <rect key="frame" x="8" y="10" width="359" height="32"/>
                                         <segments>
                                             <segment title="Date"/>
                                             <segment title="Title"/>
@@ -128,25 +128,13 @@
                                             <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Czb-Jh-bYv"/>
                                         </connections>
                                     </segmentedControl>
-                                    <searchBar contentMode="redraw" text="" placeholder="Search Hackathons" translatesAutoresizingMaskIntoConstraints="NO" id="na4-63-fMN">
-                                        <rect key="frame" x="8" y="0.0" width="359" height="56"/>
-                                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="NO"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99307399988174438" green="0.99321621656417847" blue="0.99304300546646118" alpha="0.9995117188" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="Fib-N8-ZVl" firstAttribute="top" secondItem="HiI-oA-aDD" secondAttribute="top" constant="10" id="KAh-pm-ftM"/>
                                     <constraint firstItem="Fib-N8-ZVl" firstAttribute="leading" secondItem="HiI-oA-aDD" secondAttribute="leading" constant="8" id="VpQ-x4-ljh"/>
-                                    <constraint firstItem="Fib-N8-ZVl" firstAttribute="top" secondItem="na4-63-fMN" secondAttribute="bottom" constant="10" id="Xqz-UP-7i7"/>
                                     <constraint firstAttribute="trailing" secondItem="Fib-N8-ZVl" secondAttribute="trailing" constant="8" id="ekO-6N-686"/>
-                                    <constraint firstItem="na4-63-fMN" firstAttribute="leading" secondItem="HiI-oA-aDD" secondAttribute="leading" constant="8" id="gbA-9E-pMk"/>
-                                    <constraint firstAttribute="trailing" secondItem="na4-63-fMN" secondAttribute="trailing" constant="8" id="hj2-G6-rRW"/>
-                                    <constraint firstItem="na4-63-fMN" firstAttribute="top" secondItem="HiI-oA-aDD" secondAttribute="top" id="jSP-s8-0Cy"/>
-                                    <constraint firstItem="Fib-N8-ZVl" firstAttribute="top" secondItem="na4-63-fMN" secondAttribute="bottom" constant="10" id="wK0-Fw-ghn"/>
-                                    <constraint firstAttribute="bottom" secondItem="Fib-N8-ZVl" secondAttribute="bottom" constant="8" id="weL-eN-xfm"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fib-N8-ZVl" secondAttribute="bottom" constant="10" id="jt0-Kd-BeJ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="NO"/>
@@ -158,8 +146,8 @@
                             <constraint firstAttribute="trailing" secondItem="Jp5-PC-gAY" secondAttribute="trailing" id="1mD-Ws-Chq"/>
                             <constraint firstItem="HiI-oA-aDD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3O5-PP-CbK"/>
                             <constraint firstAttribute="trailing" secondItem="HiI-oA-aDD" secondAttribute="trailing" id="VxR-0W-XHS"/>
+                            <constraint firstItem="Jp5-PC-gAY" firstAttribute="top" secondItem="HiI-oA-aDD" secondAttribute="bottom" id="ZR1-QD-315"/>
                             <constraint firstItem="HiI-oA-aDD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fC8-VL-nb2"/>
-                            <constraint firstItem="Jp5-PC-gAY" firstAttribute="top" secondItem="HiI-oA-aDD" secondAttribute="bottom" constant="8" id="ltv-FL-a6y"/>
                             <constraint firstItem="Jp5-PC-gAY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qnP-zb-YKA"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jp5-PC-gAY" secondAttribute="bottom" id="taf-uU-9kv"/>
                         </constraints>
@@ -171,7 +159,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="TableView" destination="Jp5-PC-gAY" id="pjN-lA-4bs"/>
-                        <outlet property="searchBar" destination="na4-63-fMN" id="FLo-V7-dA7"/>
                         <outlet property="segmentedControl" destination="Fib-N8-ZVl" id="4f7-Cl-FCR"/>
                         <segue destination="4bg-bM-P73" kind="show" identifier="HackathonDetailVC" id="ymn-sg-jni"/>
                     </connections>
@@ -538,10 +525,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tjf-a2-DaV">
-                                <rect key="frame" x="0.0" y="58" width="375" height="609"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6M-ps-UAn" userLabel="navBar View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                 <subviews>
@@ -567,20 +550,33 @@
                                     <constraint firstItem="k2V-2W-R3k" firstAttribute="top" secondItem="q6M-ps-UAn" secondAttribute="top" constant="11" id="s4J-7u-Uom"/>
                                 </constraints>
                             </view>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h04-tF-AYk">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h04-tF-AYk">
                                 <rect key="frame" x="0.0" y="58" width="375" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="progressTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="trackTintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9CL-1U-Ls9">
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Tjf-a2-DaV" firstAttribute="top" secondItem="q6M-ps-UAn" secondAttribute="bottom" id="10m-OR-7ZE"/>
-                            <constraint firstAttribute="trailing" secondItem="Tjf-a2-DaV" secondAttribute="trailing" id="3rI-LW-QaO"/>
+                            <constraint firstItem="0HG-OC-n7v" firstAttribute="top" secondItem="9CL-1U-Ls9" secondAttribute="bottom" id="1d4-8H-kV3"/>
                             <constraint firstAttribute="trailing" secondItem="q6M-ps-UAn" secondAttribute="trailing" id="7ka-ba-3Se"/>
-                            <constraint firstItem="Tjf-a2-DaV" firstAttribute="leading" secondItem="ic3-Hb-IhO" secondAttribute="leading" id="KZB-PG-TZ0"/>
+                            <constraint firstAttribute="trailing" secondItem="h04-tF-AYk" secondAttribute="trailing" id="Dei-jY-UFO"/>
+                            <constraint firstItem="h04-tF-AYk" firstAttribute="top" secondItem="q6M-ps-UAn" secondAttribute="bottom" id="Iy1-NR-Xh9"/>
                             <constraint firstItem="q6M-ps-UAn" firstAttribute="top" secondItem="ic3-Hb-IhO" secondAttribute="top" id="Q3f-67-aaI"/>
-                            <constraint firstItem="0HG-OC-n7v" firstAttribute="top" secondItem="Tjf-a2-DaV" secondAttribute="bottom" id="Wec-aG-Jfg"/>
+                            <constraint firstItem="9CL-1U-Ls9" firstAttribute="top" secondItem="h04-tF-AYk" secondAttribute="bottom" id="aD6-ED-PPs"/>
+                            <constraint firstItem="h04-tF-AYk" firstAttribute="leading" secondItem="ic3-Hb-IhO" secondAttribute="leading" id="bm1-bQ-Kee"/>
+                            <constraint firstItem="9CL-1U-Ls9" firstAttribute="leading" secondItem="ic3-Hb-IhO" secondAttribute="leading" id="ebi-qq-SmD"/>
                             <constraint firstItem="q6M-ps-UAn" firstAttribute="leading" secondItem="ic3-Hb-IhO" secondAttribute="leading" id="nVe-4I-IeX"/>
+                            <constraint firstAttribute="trailing" secondItem="9CL-1U-Ls9" secondAttribute="trailing" id="ukH-Qc-s5e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="vHi-hz-i4i">
@@ -589,8 +585,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="mainWebView" destination="Tjf-a2-DaV" id="aGa-sr-1fm"/>
                         <outlet property="progressBar" destination="h04-tF-AYk" id="hRR-ui-v8q"/>
+                        <outlet property="webView" destination="9CL-1U-Ls9" id="laE-eo-IPa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xgf-eK-XPZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

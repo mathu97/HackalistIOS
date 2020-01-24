@@ -8,20 +8,21 @@
 
 import UIKit
 import Toast_Swift
+import WebKit
 
-class WebViewVC: UIViewController, UIWebViewDelegate {
+class WebViewVC: UIViewController {
     var hackathon: Hackathon!
     var linkType : String!
     
-    @IBOutlet weak var mainWebView: UIWebView!
-    @IBOutlet weak var progressBar: UIProgressView!
+	
+	@IBOutlet weak var webView: WKWebView!
+	@IBOutlet weak var progressBar: UIProgressView!
     
     var timeBool: Bool!
     var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainWebView.delegate = self
         
         var urlString : String
         if linkType == "WEB" {
@@ -32,13 +33,13 @@ class WebViewVC: UIViewController, UIWebViewDelegate {
             urlString = hackathon.fbURL
         }
         if urlString == "" {
-            mainWebView.isHidden = true
+            webView.isHidden = true
             progressBar.isHidden = true
             self.view.makeToast("No \(linkType.lowercased()) page for this Hackathon", duration: 3.0, position: .bottom)
         } else {
             let url = URL(string: urlString)
-            let requestObj = URLRequest(url: url!)
-            mainWebView.loadRequest(requestObj)
+			webView.load(URLRequest(url: url!))
+			webView.allowsBackForwardNavigationGestures = true
         }
 
     }

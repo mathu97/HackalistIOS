@@ -18,6 +18,8 @@
 		234E55401F460B4100402086 /* HackathonDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E553F1F460B4100402086 /* HackathonDetailVC.swift */; };
 		52D8E86B529010609E14798F /* Pods_HackalistApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2274F0697E0D8BB56F3BA73 /* Pods_HackalistApp.framework */; };
 		8212C08A1F0C96CA00008D1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8212C0891F0C96CA00008D1A /* Constants.swift */; };
+		8218710D23DAA5E800E0CFB3 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8218710C23DAA5E800E0CFB3 /* utils.swift */; };
+		8218710F23DB52CD00E0CFB3 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8218710E23DB52CD00E0CFB3 /* CustomSearchBar.swift */; };
 		8236D7B41F47E127001B54FA /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8236D7B31F47E127001B54FA /* WebViewVC.swift */; };
 		82497C9023D8EAEC00CBAA9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82497C8F23D8EAEC00CBAA9B /* SceneDelegate.swift */; };
 		8272BD741F489F1E003F575A /* materialDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8272BD731F489F1E003F575A /* materialDesign.swift */; };
@@ -37,6 +39,8 @@
 		234250581EE9A3D2005DA2C1 /* Hackathon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hackathon.swift; sourceTree = "<group>"; };
 		234E553F1F460B4100402086 /* HackathonDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HackathonDetailVC.swift; sourceTree = "<group>"; };
 		8212C0891F0C96CA00008D1A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8218710C23DAA5E800E0CFB3 /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
+		8218710E23DB52CD00E0CFB3 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		8236D7B31F47E127001B54FA /* WebViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		82497C8F23D8EAEC00CBAA9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8272BD731F489F1E003F575A /* materialDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = materialDesign.swift; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 				2342504A1EE98BF6005DA2C1 /* LaunchScreen.storyboard */,
 				2342504D1EE98BF6005DA2C1 /* Info.plist */,
 				234250451EE98BF6005DA2C1 /* HackalistApp.xcdatamodeld */,
+				8218710C23DAA5E800E0CFB3 /* utils.swift */,
 			);
 			path = HackalistApp;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 			children = (
 				234250561EE99DD4005DA2C1 /* HackathonCell.swift */,
 				8272BD731F489F1E003F575A /* materialDesign.swift */,
+				8218710E23DB52CD00E0CFB3 /* CustomSearchBar.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -255,6 +261,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				234250411EE98BF6005DA2C1 /* MainVC.swift in Sources */,
+				8218710D23DAA5E800E0CFB3 /* utils.swift in Sources */,
+				8218710F23DB52CD00E0CFB3 /* CustomSearchBar.swift in Sources */,
 				8272BD741F489F1E003F575A /* materialDesign.swift in Sources */,
 				234250471EE98BF6005DA2C1 /* HackalistApp.xcdatamodeld in Sources */,
 				234250591EE9A3D2005DA2C1 /* Hackathon.swift in Sources */,
