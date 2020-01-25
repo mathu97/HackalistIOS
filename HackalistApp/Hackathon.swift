@@ -140,6 +140,13 @@ class Hackathon{
     var prize : Bool{
         return _prize
     }
+	
+	func getStartDate() -> Date {
+		let dateFormat = "MMMM dd yyyy"
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = dateFormat
+		return dateFormatter.date(from: "\(self.startDate) \(self.year)")!
+	}
     
     
     init(json : [String: String]){

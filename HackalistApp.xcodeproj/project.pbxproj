@@ -65,7 +65,6 @@
 			children = (
 				2342503D1EE98BF6005DA2C1 /* HackalistApp */,
 				2342503C1EE98BF6005DA2C1 /* Products */,
-				834F24D3D509F4F78532CF33 /* Pods */,
 				B1EA92889040F4EADA826489 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -81,8 +80,10 @@
 		2342503D1EE98BF6005DA2C1 /* HackalistApp */ = {
 			isa = PBXGroup;
 			children = (
-				234250551EE99AD7005DA2C1 /* Controller */,
+				834F24D3D509F4F78532CF33 /* Pods */,
+				8218711023DB8B6300E0CFB3 /* Utils */,
 				234250541EE99AD3005DA2C1 /* View */,
+				234250551EE99AD7005DA2C1 /* Controller */,
 				234250531EE99ACD005DA2C1 /* Model */,
 				2342503E1EE98BF6005DA2C1 /* AppDelegate.swift */,
 				82497C8F23D8EAEC00CBAA9B /* SceneDelegate.swift */,
@@ -91,7 +92,6 @@
 				2342504A1EE98BF6005DA2C1 /* LaunchScreen.storyboard */,
 				2342504D1EE98BF6005DA2C1 /* Info.plist */,
 				234250451EE98BF6005DA2C1 /* HackalistApp.xcdatamodeld */,
-				8218710C23DAA5E800E0CFB3 /* utils.swift */,
 			);
 			path = HackalistApp;
 			sourceTree = "<group>";
@@ -109,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				234250561EE99DD4005DA2C1 /* HackathonCell.swift */,
-				8272BD731F489F1E003F575A /* materialDesign.swift */,
 				8218710E23DB52CD00E0CFB3 /* CustomSearchBar.swift */,
 			);
 			name = View;
@@ -125,6 +124,15 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		8218711023DB8B6300E0CFB3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8218710C23DAA5E800E0CFB3 /* utils.swift */,
+				8272BD731F489F1E003F575A /* materialDesign.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		834F24D3D509F4F78532CF33 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +140,7 @@
 				210F37CC69B594526ED2A4A9 /* Pods-HackalistApp.release.xcconfig */,
 			);
 			name = Pods;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		B1EA92889040F4EADA826489 /* Frameworks */ = {

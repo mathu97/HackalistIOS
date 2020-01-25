@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
+class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var hackathons = [Hackathon]() //Array of all hackathons
     var filteredHackathons = [Hackathon]()
@@ -20,8 +20,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
   
 	@IBOutlet weak var TableView: UITableView!
 	@IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var searchBar: UISearchBar!
-    var inSearchMode = false
+	
+	let searchBar = CustomSearchBar()
+    var currentlySearching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +31,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         TableView.dataSource = self
         getHackathonData(API_URL: "https://Hackalist.github.io/api/1.0")
         
-//        searchBar.delegate = self
-        let searchBar = CustomSearchBar()
 		searchBar.delegate = self
 		
 		self.navigationItem.titleView = searchBar
         group.notify(queue: .main) {
             self.doneDownload = true
+			self.hackathons = self.hackathons.sorted(by: sortHackathonByDate)
+			self.TableView.reloadData()
             //*****Can use this block to execute any code after all hackathon requests have been made
         }
         
@@ -105,7 +106,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if inSearchMode {
+        if currentlySearching {
             return filteredHackathons.count
         }
  
@@ -116,7 +117,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         if let cell = TableView.dequeueReusableCell(withIdentifier: "hackathonCell", for: indexPath) as? HackathonCell {
             var newHackathon: Hackathon!
             
-            if inSearchMode {
+            if currentlySearching {
                 newHackathon = filteredHackathons[indexPath.row]
             }
             else {
@@ -136,40 +137,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         return 115
     
     }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        view.endEditing(true)
-        
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //This will be called, everytime we make a keystroke in the searchbar
-        
-        if searchBar.text == nil ||  searchBar.text == "" {
-            
-            inSearchMode = false
-            self.TableView.reloadData()
-            
-            view.endEditing(true) //Hide the keyboard
-            
-        } else {
-            inSearchMode = true
-            
-            let lower = searchBar.text!.lowercased()
-            
-            filteredHackathons = hackathons.filter({$0.title.lowercased().range(of: lower) != nil})
-            self.TableView.reloadData()
-        }
-        
-    }
 
     @IBAction func indexChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex
         {
         case 0:
             if doneDownload {
-                self.hackathons.sort(by: self.lessThanByDate)
+				self.hackathons = self.hackathons.sorted(by: sortHackathonByDate)
                 self.TableView.reloadData()
             }
         case 1: //Not implemented yet
@@ -182,50 +156,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         }
     }
     
-    func lessThanByDate (lhs: Hackathon, rhs: Hackathon) -> Bool{
-        
-        //Returns true if lhs hackathon starts before rhs hackathon, else it returns false
-        
-        let myFormatter = DateFormatter()
-        myFormatter.dateFormat = "MM"
-        
-        let lhsMonthDateArray = lhs.startDate.components(separatedBy: " ")
-        let rhsMonthDateArray = rhs.startDate.components(separatedBy: " ")
-        
-        let lhsMonthDate = myFormatter.date(from: lhsMonthDateArray[0])!
-        let rhsMonthDate = myFormatter.date(from: rhsMonthDateArray[0])!
-        
-        let lhsMonth = Calendar.current.component(.month, from: lhsMonthDate)
-        let rhsMonth = Calendar.current.component(.month, from: rhsMonthDate)
-        
-        myFormatter.dateFormat = "yyyy-MM-dd"
-        
-        var lhsMonthfiller = ""
-        if lhsMonth < 10 {
-            lhsMonthfiller = "0"
-        }
-        
-        var rhsMonthfiller = ""
-        if rhsMonth < 10 {
-            rhsMonthfiller = "0"
-        }
-        
-        var lhsDayFiller = ""
-        if lhsMonthDateArray[1].count < 2 {
-            lhsDayFiller = "0"
-        }
-        
-        var rhsDayFiller = ""
-        if rhsMonthDateArray[1].count < 2 {
-            rhsDayFiller = "0"
-        }
-        
-        let lhsDate = myFormatter.date(from: "\(lhs.year)-\(lhsMonthfiller)\(lhsMonth)-\(lhsDayFiller)\(lhsMonthDateArray[1])")!
-        let rhsDate = myFormatter.date(from: "\(rhs.year)-\(rhsMonthfiller)\(rhsMonth)-\(rhsDayFiller)\(rhsMonthDateArray[1])")!
-        
-        return lhsDate < rhsDate
-    }
-    
     func lessThanByTitle(lhs: Hackathon, rhs: Hackathon) -> Bool{
         //Returns true if lhs hackathon title comes before rhs hackathon title, else it returns false
         
@@ -236,5 +166,37 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         return false
     }
     
+}
+
+extension MainVC : UISearchBarDelegate {
+	
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
+	func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+		//If the scrollview is dragged
+		searchBar.endEditing(true)
+	}
+	
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //This will be called, everytime we make a keystroke in the searchbar
+        
+        if searchBar.text == nil ||  searchBar.text == "" {
+            
+            currentlySearching = false
+            self.TableView.reloadData()
+            
+            view.endEditing(true) //Hide the keyboard
+            
+        } else {
+            currentlySearching = true
+            let searchBarText = searchBar.text!.lowercased()
+            
+            filteredHackathons = hackathons.filter({$0.title.lowercased().range(of: searchBarText) != nil})
+            self.TableView.reloadData()
+        }
+        
+    }
 }
 

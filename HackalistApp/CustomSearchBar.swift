@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomSearchBar: UISearchBar, UISearchBarDelegate {
+class CustomSearchBar: UISearchBar {
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -19,9 +19,9 @@ class CustomSearchBar: UISearchBar, UISearchBarDelegate {
     */
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		self.returnKeyType = UIReturnKeyType.done
+		self.returnKeyType = UIReturnKeyType.search
 		self.layer.borderWidth = 10
-		self.layer.borderColor = UIColor.white.cgColor
+		self.layer.borderColor = UIColor.white.withAlphaComponent(0).cgColor
 		self.placeholder = "Search Hackathons"
 	}
 	

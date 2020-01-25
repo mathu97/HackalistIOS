@@ -22,3 +22,7 @@ func getCurrentMonthNumber() -> Int {
 func getMonthName(monthNum: Int) -> String {
 	return DateFormatter().monthSymbols[monthNum - 1]
 }
+
+func sortHackathonByDate(hackathon1: Hackathon, hackathon2: Hackathon) -> Bool{
+	return hackathon1.getStartDate() < hackathon2.getStartDate()
+}
