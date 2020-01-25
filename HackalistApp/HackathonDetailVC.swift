@@ -13,7 +13,6 @@ class HackathonDetailVC: UIViewController {
     var hackathon: Hackathon!
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var locationLbl: UILabel!
     @IBOutlet weak var capacityLbl: UILabel!
@@ -38,8 +37,6 @@ class HackathonDetailVC: UIViewController {
         var date: String
         date = "\(hackathon.startDate) - \(hackathon.endDate)"
         dateLbl.text = date
-        
-        titleLbl.text = hackathon.title
         locationLbl.text = hackathon.location
         capacityLbl.text = "\(hackathon.size) people"
         costLbl.text = hackathon.cost

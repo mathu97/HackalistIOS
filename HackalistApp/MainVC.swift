@@ -9,88 +9,53 @@
 import UIKit
 import Alamofire
 
-class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
-
+class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    var hackathon : Hackathon?
     var hackathons = [Hackathon]() //Array of all hackathons
     var filteredHackathons = [Hackathon]()
     var doneDownload = false
 
-    var months = [String]() //Array of all months
     let group = DispatchGroup()
 
   
 	@IBOutlet weak var TableView: UITableView!
 	@IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var searchBar: UISearchBar!
-    var inSearchMode = false
+	
+	let searchBar = CustomSearchBar()
+    var currentlySearching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
 		TableView.delegate = self
         TableView.dataSource = self
-        getData(API_URL: "https://Hackalist.github.io/api/1.0")
+        getHackathonData(API_URL: "https://Hackalist.github.io/api/1.0")
         
-        searchBar.delegate = self
-        searchBar.returnKeyType = UIReturnKeyType.done // Change the "Search" on keyboard to "Done"
-		searchBar.layer.borderWidth = 10
-		searchBar.layer.borderColor = UIColor.white.cgColor
-        
+		searchBar.delegate = self
+		
+		self.navigationItem.titleView = searchBar
         group.notify(queue: .main) {
             self.doneDownload = true
+			self.hackathons = self.hackathons.sorted(by: sortHackathonByDate)
+			self.TableView.reloadData()
             //*****Can use this block to execute any code after all hackathon requests have been made
         }
         
     }
     
-    func getData(API_URL : String){
-        //Get current date and format it to look like the response startDate
-        let date = Date()
-        var currentDateComp = DateComponents()
-        let calendar = Calendar.current
-        
-        currentDateComp.month = calendar.component(.month, from: date)
-        currentDateComp.day = calendar.component(.day, from: date)
-        let myFormatter = DateFormatter()
-        myFormatter.dateFormat = "MMMM d"
-        let curr_date_data = calendar.date(from: currentDateComp)!
-        let curr_date = myFormatter.string(from: curr_date_data)
-        
-        myFormatter.dateFormat = "MMMM"
-        let curr_month_data = calendar.date(from: currentDateComp)!
-        let curr_month = myFormatter.string(from: curr_month_data)
-        
-        self.months = myFormatter.monthSymbols  //Array of all months
-        
-        let currentMonthIndex = self.months.firstIndex(of: curr_month)
-
-        
-        let year = calendar.component(.year, from: date)
-        var month = ""
-        var monthURL = ""
-        var hkURL : URL
-        
+    func getHackathonData(API_URL : String){
         //Getting the hackathons for the current month + year
-        for i in currentDateComp.month! ... 12{
+        for month in getCurrentMonthNumber() ... 12{
             group.enter()
             
-            if i <= 9{
-                month = "0" + String(describing: i)
-            }else{
-                month = String(describing: i)
-            }
-        
-            monthURL = API_URL + "/" + String(year) + "/" + month + ".json"
-            hkURL = URL(string: monthURL)!
-            dataApiRequest(hkURL: hkURL, currentMonthIndex: i-1){}
+			let apiEndPoint = getAPIEndpoint(apiURLPrefix: API_URL, month: month)
+			dataApiRequest(hkURL: URL(string: apiEndPoint)!, currentMonthNum: month){}
         }
 
     }
     
     
-    func dataApiRequest(hkURL : URL, currentMonthIndex : Int, completed: @escaping DownloadComplete){
+    func dataApiRequest(hkURL : URL, currentMonthNum : Int, completed: @escaping DownloadComplete){
         //Gets hackathosn for the current month and adds the hackathon objects to the hackathons array
         Alamofire.request(hkURL).responseJSON(completionHandler: { response in
             switch response.result {
@@ -98,12 +63,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
 
                 if let json = response.result.value as? Dictionary<String, AnyObject> {
                     
-                        let month = self.months[currentMonthIndex]
-                        let month_hackathons = json[month] as! [Dictionary<String, AnyObject>]
+
+					let month_hackathons = json[getMonthName(monthNum: currentMonthNum)] as! [Dictionary<String, AnyObject>]
                         for case let result in month_hackathons{
                             let info = result as? [String: String]
-                            self.hackathon = Hackathon(json: info!)
-                            self.hackathons.append(self.hackathon!)
+							let newHackathon = Hackathon(json: info!)
+                            self.hackathons.append(newHackathon)
                             
                         }
                        self.TableView.reloadData()
@@ -123,6 +88,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
             if let detailsVC = segue.destination as? HackathonDetailVC {
                 if let hacks = sender as? Hackathon {
                     detailsVC.hackathon = hacks
+					detailsVC.navigationItem.title = hacks.title
                 }
             }
         }
@@ -140,7 +106,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if inSearchMode {
+        if currentlySearching {
             return filteredHackathons.count
         }
  
@@ -151,7 +117,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         if let cell = TableView.dequeueReusableCell(withIdentifier: "hackathonCell", for: indexPath) as? HackathonCell {
             var newHackathon: Hackathon!
             
-            if inSearchMode {
+            if currentlySearching {
                 newHackathon = filteredHackathons[indexPath.row]
             }
             else {
@@ -171,40 +137,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         return 115
     
     }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        view.endEditing(true)
-        
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //This will be called, everytime we make a keystroke in the searchbar
-        
-        if searchBar.text == nil ||  searchBar.text == "" {
-            
-            inSearchMode = false
-            self.TableView.reloadData()
-            
-            view.endEditing(true) //Hide the keyboard
-            
-        } else {
-            inSearchMode = true
-            
-            let lower = searchBar.text!.lowercased()
-            
-            filteredHackathons = hackathons.filter({$0.title.lowercased().range(of: lower) != nil})
-            self.TableView.reloadData()
-        }
-        
-    }
 
     @IBAction func indexChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex
         {
         case 0:
             if doneDownload {
-                self.hackathons.sort(by: self.lessThanByDate)
+				self.hackathons = self.hackathons.sorted(by: sortHackathonByDate)
                 self.TableView.reloadData()
             }
         case 1: //Not implemented yet
@@ -217,50 +156,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         }
     }
     
-    func lessThanByDate (lhs: Hackathon, rhs: Hackathon) -> Bool{
-        
-        //Returns true if lhs hackathon starts before rhs hackathon, else it returns false
-        
-        let myFormatter = DateFormatter()
-        myFormatter.dateFormat = "MM"
-        
-        let lhsMonthDateArray = lhs.startDate.components(separatedBy: " ")
-        let rhsMonthDateArray = rhs.startDate.components(separatedBy: " ")
-        
-        let lhsMonthDate = myFormatter.date(from: lhsMonthDateArray[0])!
-        let rhsMonthDate = myFormatter.date(from: rhsMonthDateArray[0])!
-        
-        let lhsMonth = Calendar.current.component(.month, from: lhsMonthDate)
-        let rhsMonth = Calendar.current.component(.month, from: rhsMonthDate)
-        
-        myFormatter.dateFormat = "yyyy-MM-dd"
-        
-        var lhsMonthfiller = ""
-        if lhsMonth < 10 {
-            lhsMonthfiller = "0"
-        }
-        
-        var rhsMonthfiller = ""
-        if rhsMonth < 10 {
-            rhsMonthfiller = "0"
-        }
-        
-        var lhsDayFiller = ""
-        if lhsMonthDateArray[1].count < 2 {
-            lhsDayFiller = "0"
-        }
-        
-        var rhsDayFiller = ""
-        if rhsMonthDateArray[1].count < 2 {
-            rhsDayFiller = "0"
-        }
-        
-        let lhsDate = myFormatter.date(from: "\(lhs.year)-\(lhsMonthfiller)\(lhsMonth)-\(lhsDayFiller)\(lhsMonthDateArray[1])")!
-        let rhsDate = myFormatter.date(from: "\(rhs.year)-\(rhsMonthfiller)\(rhsMonth)-\(rhsDayFiller)\(rhsMonthDateArray[1])")!
-        
-        return lhsDate < rhsDate
-    }
-    
     func lessThanByTitle(lhs: Hackathon, rhs: Hackathon) -> Bool{
         //Returns true if lhs hackathon title comes before rhs hackathon title, else it returns false
         
@@ -271,5 +166,37 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         return false
     }
     
+}
+
+extension MainVC : UISearchBarDelegate {
+	
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
+	func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+		//If the scrollview is dragged
+		searchBar.endEditing(true)
+	}
+	
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //This will be called, everytime we make a keystroke in the searchbar
+        
+        if searchBar.text == nil ||  searchBar.text == "" {
+            
+            currentlySearching = false
+            self.TableView.reloadData()
+            
+            view.endEditing(true) //Hide the keyboard
+            
+        } else {
+            currentlySearching = true
+            let searchBarText = searchBar.text!.lowercased()
+            
+            filteredHackathons = hackathons.filter({$0.title.lowercased().range(of: searchBarText) != nil})
+            self.TableView.reloadData()
+        }
+        
+    }
 }
 
